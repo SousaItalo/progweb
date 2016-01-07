@@ -9,11 +9,16 @@ public class ConnectionFactory {
         String url = "jdbc:postgresql://localhost:5432/progweb?currentSchema=biblioteca";
         String usuario = "postgres";
         String senha = "admin";
+        Connection connection = null;
         
         try {
-            return DriverManager.getConnection(url, usuario, senha);
+        	Class.forName("org.postgresql.Driver");
+            connection = DriverManager.getConnection(url, usuario, senha);
         } catch(SQLException e) {
             throw new RuntimeException(e);
-        }
+        } catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		return connection;
     }
 }

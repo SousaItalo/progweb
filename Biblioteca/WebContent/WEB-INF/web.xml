@@ -16,7 +16,7 @@
   </filter>
   <filter-mapping>
   	<filter-name>FiltroConexao</filter-name>
-  	<url-pattern>/logicas/*</url-pattern>
+  	<url-pattern>/ControllerServlet</url-pattern>
   </filter-mapping>
   
   <servlet>
