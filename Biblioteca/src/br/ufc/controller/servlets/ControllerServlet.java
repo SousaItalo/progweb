@@ -2,40 +2,38 @@ package br.ufc.controller.servlets;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class ControllerServlet
- */
-@WebServlet("/ControllerServlet")
+import br.ufc.controller.logicas.ILogica;
+
 public class ControllerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ControllerServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+	protected void service(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
+		//Recebe parametro logica do request e gera o nome da classe responsável pela mesma.
+		String parametro = request.getParameter("logica");
+		String nomeDaClasse = "br.ufc.controller.logicas." + parametro;
+		
+		try {
+			//Obtém a classe.
+			Class<?> classe = Class.forName(nomeDaClasse);
+			
+			//Cria uma nova instância da classe, usando polimorfismo.
+			ILogica logica = (ILogica) classe.newInstance();
+			
+			//Recebe a string como retorno do método executa da interface.
+			String pagina = logica.executa(request, response);
+			
+			//Forward para a página. 
+			request.getRequestDispatcher(pagina).forward(request, response);
+		} catch(Exception e) {
+			throw new ServletException(e);
+		}
+		
 	}
 
 }
