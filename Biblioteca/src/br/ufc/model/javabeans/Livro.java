@@ -9,7 +9,7 @@ public class Livro {
 	private String genero;
 	private int quantidade;
 	private Calendar dataPublicacao;
-	private ArrayList<String> idAutor = new ArrayList<String>();
+	private ArrayList<String> escritores = new ArrayList<String>();
 	/**
 	 * @return the isbn
 	 */
@@ -72,13 +72,13 @@ public class Livro {
 	}
 	
 	public ArrayList<String> getIdAutor() {
-		return idAutor;
+		return escritores;
 	}
 	/**
 	 * @param idAutor the idAutor to set
 	 */
 	public void setIdAutor(String nome) {
-		this.idAutor.add(nome);
+		this.escritores.add(nome);
 	
 	}
 	
