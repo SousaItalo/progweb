@@ -3,8 +3,11 @@ package br.ufc.model.dao;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 import br.ufc.model.javabeans.Emprestimo;
 
@@ -26,7 +29,7 @@ public class EmprestimoDAO {
 			java.util.Date hoje = new java.util.Date(System.currentTimeMillis());
 			Calendar cal = Calendar.getInstance();
 			cal.setTime(hoje);
-			cal.add(Calendar.DATE, 10);
+			cal.add(Calendar.DATE, 14);
 			java.util.Date entrega = cal.getTime();
 			
 			statement.setString(1, emprestimo.getIdCliente());
@@ -44,4 +47,73 @@ public class EmprestimoDAO {
 		}
 	}
 
+	public List<Emprestimo> read(String cpf) {
+		String sql = "SELECT * FROM emprestimo " +
+					 "WHERE id_cliente = ?";
+		
+		try {
+			List<Emprestimo> emprestimos = new ArrayList<>();
+			PreparedStatement statement = this.connection.prepareStatement(sql);
+			statement.setString(1, cpf);
+
+			ResultSet resultado = statement.executeQuery();
+			while(resultado.next()) {
+				Emprestimo emprestimo = new Emprestimo();
+				emprestimo.setIdCliente(resultado.getString("id_cliente"));
+				emprestimo.setIdFuncionario(resultado.getString("id_funcionario"));
+				emprestimo.setRenovacoes(resultado.getInt("renovacoes"));
+				emprestimo.setIdLivro(resultado.getString("id_livro"));
+				
+				Calendar dataEmprestimo = Calendar.getInstance();
+				dataEmprestimo.setTime(resultado.getDate("data_emprestimo"));
+				emprestimo.setDataEmprestimo(dataEmprestimo);
+				
+				Calendar dataEntrega = Calendar.getInstance();
+				dataEntrega.setTime(resultado.getDate("data_entrega"));
+				emprestimo.setDataEntrega(dataEntrega);
+				
+				try {
+					Calendar dataDevolucao = Calendar.getInstance();
+					dataDevolucao.setTime(resultado.getDate("data_devolucao"));
+					emprestimo.setDataDevolucao(dataDevolucao);
+				} catch(NullPointerException e) {
+					emprestimo.setDataDevolucao(null);
+				}
+				
+				emprestimos.add(emprestimo);
+			}
+			
+			resultado.close();
+			statement.close();
+			
+			return emprestimos;
+		} catch(SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
+	public void update(Emprestimo emprestimo) {
+		String sql = "UPDATE emprestimo SET renovacoes = ?," +
+					 "data_devolucao = ?, data_entrega = ? " +
+					 "WHERE id_livro = ? AND id_cliente = ? AND data_devolucao is null";
+		
+		try {
+			PreparedStatement statement = this.connection.prepareStatement(sql);
+			
+			statement.setInt(1, emprestimo.getRenovacoes());
+			try {
+				statement.setDate(2, new Date(emprestimo.getDataDevolucao().getTimeInMillis()));
+			} catch(NullPointerException e) {
+				statement.setDate(2, null);
+			}
+			statement.setDate(3, new Date(emprestimo.getDataEntrega().getTimeInMillis()));
+			statement.setString(4, emprestimo.getIdLivro());
+			statement.setString(5, emprestimo.getIdCliente());
+			
+			statement.execute();
+			statement.close();
+		} catch(SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
 }
