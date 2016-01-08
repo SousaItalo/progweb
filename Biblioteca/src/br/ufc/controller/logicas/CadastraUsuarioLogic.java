@@ -30,7 +30,7 @@ public class CadastraUsuarioLogic implements ILogica{
 		UsuarioDAO dao = new UsuarioDAO(connection);
 		dao.create(usuario);
 		
-		return "index.jsp";
+		return "cadastrar-usuario.jsp";
 	}
 
 }

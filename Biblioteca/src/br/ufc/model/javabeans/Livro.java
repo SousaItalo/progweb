@@ -71,13 +71,13 @@ public class Livro {
 		this.dataPublicacao = dataPublicacao;
 	}
 	
-	public ArrayList<String> getIdAutor() {
+	public ArrayList<String> getEscritores() {
 		return escritores;
 	}
 	/**
 	 * @param idAutor the idAutor to set
 	 */
-	public void setIdAutor(String nome) {
+	public void setEscritores(String nome) {
 		this.escritores.add(nome);
 	
 	}
