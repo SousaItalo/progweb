@@ -19,7 +19,7 @@
 		Quantidade:<br>
 		<input type="text" name="quantidade"><br>
 		Data de Publicação:<br>
-		<input type="text" name="data"><br>
+		<input type="date" name="data" min="1979-12-31"><br>
 		Autores:<br>
 		<div id="tabela-autores">
 			<table id="livros">
