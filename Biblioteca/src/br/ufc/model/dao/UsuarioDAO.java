@@ -51,7 +51,7 @@ public class UsuarioDAO {
 			statement.setString(1, cpf);
 			
 			ResultSet resultado = statement.executeQuery();
-			while(resultado.next()) {
+			if(resultado.next()) {
 				usuario.setCpf(resultado.getString("cpf"));
 				usuario.setNome(resultado.getString("nome"));
 				usuario.setSenha(resultado.getString("senha"));
@@ -62,12 +62,17 @@ public class UsuarioDAO {
 				usuario.setRua(resultado.getString("rua"));
 				usuario.setCidade(resultado.getString("cidade"));
 				usuario.setEstado(resultado.getString("estado"));
+				
+				resultado.close();
+				statement.close();
+				
+				return usuario;
+			} else {
+				resultado.close();
+				statement.close();
+				
+				return null;
 			}
-			
-			resultado.close();
-			statement.close();
-			
-			return usuario;
 		} catch(SQLException e) {
 			throw new RuntimeException(e);
 		}
