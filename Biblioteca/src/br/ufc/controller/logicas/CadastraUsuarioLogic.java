@@ -28,7 +28,7 @@ public class CadastraUsuarioLogic implements ILogica{
 		usuario.setEstado(request.getParameter("estado"));
 		
 		UsuarioDAO dao = new UsuarioDAO(connection);
-		dao.insert(usuario);
+		dao.create(usuario);
 		
 		return "index.jsp";
 	}
