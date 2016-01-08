@@ -25,7 +25,7 @@
 			<table id="livros">
 				<tr>
 					<td><input type="text" name="autor"></td>
-					<td onclick="teste()">teste</td>
+					<td onclick="addCampoAutor()">teste</td>
 				</tr>
 			</table>
 		</div>

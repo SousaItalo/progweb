@@ -1,7 +1,7 @@
 /**
  * 
  */
-function teste() {
+function addCampoAutor() {
     "use strict";
     var row = document.createElement("tr");
     var td1 = document.createElement("td");
