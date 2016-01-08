@@ -34,5 +34,6 @@
 	  	<input type="hidden" name ="logica" value="CadastraUsuarioLogic">
 	  	<input type="submit" value="Cadastrar">
 	</form>
+		
 </body>
 </html>

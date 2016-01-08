@@ -1,15 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>Insert title here</title>
+	<title>Cadastrar livro</title>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 	<h1>Cadastrar Livro</h1>
 	<form action="ControllerServlet" method="post">
-		Título:<br> 
+        TÃ­tulo:<br> 
 		<input type="text" name="titulo"><br>
 		ISBN:<br>
 		<input type="text" name="isbn"><br>
@@ -17,19 +18,22 @@
 		<input type="text" name="genero"><br>
 		Quantidade:<br>
 		<input type="text" name="quantidade"><br>
-		Data de Publicação:<br>
+		Data de PublicaÃ§Ã£o:<br>
 		<input type="text" name="data"><br>
 		Autores:<br>
-		<table>
-			<tr>
-				<td><input type="text" name="autor1"></td>
-			</tr>
-			<tr>
-				<td><input type="text" name="autor2"></td>
-			</tr>
-		</table>
+		<div id="tabela-autores">
+			<table id="livros">
+				<tr>
+					<td><input type="text" name="autor"></td>
+					<td onclick="teste()">teste</td>
+				</tr>
+			</table>
+		</div>
 		<input type="hidden" name ="logica" value="CadastraLivroLogic">
 	  	<input type="submit" value="Cadastrar">
-	</form>	
+	</form>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="main.js"></script>	
 </body>
 </html>
