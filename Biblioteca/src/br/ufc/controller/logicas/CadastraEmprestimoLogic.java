@@ -35,9 +35,9 @@ public class CadastraEmprestimoLogic implements ILogica{
 			dao.create(emprestimo);
 			
 			return "cadastrar-emprestimo.jsp";
-		} else {
-			return "cadastrar-emprestimo.jsp";
-		}		
+		}
+		
+		return "cadastrar-emprestimo.jsp";
 	}
 
 }
