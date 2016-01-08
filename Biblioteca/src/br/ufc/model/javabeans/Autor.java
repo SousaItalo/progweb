@@ -1,7 +1,10 @@
 package br.ufc.model.javabeans;
 
+import java.util.ArrayList;
+
 public class Autor {
-	public String idLivro;
+	private String idLivro;
+	private ArrayList<Integer> idAutor = new ArrayList<Integer>();
 	/**
 	 * @return the idLivro
 	 */
@@ -17,14 +20,14 @@ public class Autor {
 	/**
 	 * @return the idAutor
 	 */
-	public int getIdAutor() {
+	public ArrayList<Integer> getIdAutor() {
 		return idAutor;
 	}
 	/**
 	 * @param idAutor the idAutor to set
 	 */
-	public void setIdAutor(int idAutor) {
-		this.idAutor = idAutor;
+	public void setIdAutor(int id) {
+		this.idAutor.add(id);
+	
 	}
-	public int idAutor;
 }
