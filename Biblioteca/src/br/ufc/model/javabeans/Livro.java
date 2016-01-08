@@ -1,5 +1,6 @@
 package br.ufc.model.javabeans;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 
 public class Livro {
@@ -8,6 +9,7 @@ public class Livro {
 	private String genero;
 	private int quantidade;
 	private Calendar dataPublicacao;
+	private ArrayList<String> idAutor = new ArrayList<String>();
 	/**
 	 * @return the isbn
 	 */
@@ -67,6 +69,17 @@ public class Livro {
 	 */
 	public void setDataPublicacao(Calendar dataPublicacao) {
 		this.dataPublicacao = dataPublicacao;
+	}
+	
+	public ArrayList<String> getIdAutor() {
+		return idAutor;
+	}
+	/**
+	 * @param idAutor the idAutor to set
+	 */
+	public void setIdAutor(String nome) {
+		this.idAutor.add(nome);
+	
 	}
 	
 }
