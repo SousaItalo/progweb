@@ -9,16 +9,27 @@
 <body>
 	<h1>Cadastrar Livro</h1>
 	<form action="ControllerServlet" method="post">
-		Título:<br/> 
+		Título:<br> 
 		<input type="text" name="titulo">
-		ISBN:<br/>
+		ISBN:<br>
 		<input type="text" name="isbn">
-		Genero:<br/>
+		Genero:<br>
 		<input type="text" name="genero">
-		Quantidade:<br/>
+		Quantidade:<br>
 		<input type="text" name="quantidade">
-		Data de Publicação:<br/>
-		<input type:"text" name="data">
+		Data de Publicação:<br>
+		<input type="text" name="data">
+		Autores:<br>
+		<table>
+			<tr>
+				<td><input type="text" name="autor1"></td>
+			</tr>
+			<tr>
+				<td><input type="text" name="autor2"></td>
+			</tr>
+		</table>
+		<input type="hidden" name ="logica" value="CadastraLivroLogic">
+	  	<input type="submit" value="Cadastrar">
 	</form>	
 </body>
 </html>
