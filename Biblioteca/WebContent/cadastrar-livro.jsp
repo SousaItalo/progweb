@@ -10,15 +10,15 @@
 	<h1>Cadastrar Livro</h1>
 	<form action="ControllerServlet" method="post">
 		Título:<br> 
-		<input type="text" name="titulo">
+		<input type="text" name="titulo"><br>
 		ISBN:<br>
-		<input type="text" name="isbn">
+		<input type="text" name="isbn"><br>
 		Genero:<br>
-		<input type="text" name="genero">
+		<input type="text" name="genero"><br>
 		Quantidade:<br>
-		<input type="text" name="quantidade">
+		<input type="text" name="quantidade"><br>
 		Data de Publicação:<br>
-		<input type="text" name="data">
+		<input type="text" name="data"><br>
 		Autores:<br>
 		<table>
 			<tr>
