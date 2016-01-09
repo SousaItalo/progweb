@@ -10,10 +10,8 @@
 <body>
     <h1>Cadastrar Empréstimo</h1>
     <form action="ControllerServlet" method="post">
-        CPF do funcionário:<br>
-        <input type="text" name="cpf-funcionario"><br>
-        CPF do cliente:<br>
-        <input type="text" name="cpf-cliente"><br>
+        CPF:<br>
+        <input type="text" name="cpf"><br>
         Senha:<br>
         <input type="password" name="senha"><br>
         Código do(s) livro(s):<br>
