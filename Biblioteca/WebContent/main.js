@@ -1,7 +1,4 @@
-/**
- * 
- */
-function addCampoAutor() {
+function addCampo(nome) {
     "use strict";
     var row = document.createElement("tr");
     var td1 = document.createElement("td");
@@ -11,11 +8,11 @@ function addCampoAutor() {
     var input = document.createElement("input");
      
     input.setAttribute("type", "text");
-    input.setAttribute("name", "autor");
+    input.setAttribute("name", nome);
     
     td1.appendChild(input);
     
     
-    var table = document.getElementById("livros");
+    var table = document.getElementById("tabela-livros");
     table.appendChild(row);
 }

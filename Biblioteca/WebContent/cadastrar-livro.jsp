@@ -22,10 +22,10 @@
 		<input type="date" name="data" min="1979-12-31"><br>
 		Autores:<br>
 		<div id="tabela-autores">
-			<table id="livros">
+			<table id="tabela-livros">
 				<tr>
 					<td><input type="text" name="autor"></td>
-					<td onclick="addCampoAutor()">teste</td>
+					<td onclick="addCampo('autor')">teste</td>
 				</tr>
 			</table>
 		</div>
