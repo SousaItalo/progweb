@@ -27,8 +27,6 @@ public class CadastraEmprestimoLogic implements ILogica{
 		if(cliente != null && cliente.getSenha().equals(request.getParameter("senha"))) {
 			EmprestimoDAO dao = new EmprestimoDAO(connection);
 			
-			//String[] isbn = request.getParameterValues("isbn");
-			//System.out.println(isbn.length);
 			for(String isbn : request.getParameterValues("isbn")) {
 				Emprestimo emprestimo = new Emprestimo();
 				emprestimo.setIdCliente(cliente.getCpf());
