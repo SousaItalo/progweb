@@ -25,14 +25,19 @@ public class CadastraEmprestimoLogic implements ILogica{
 		Usuario cliente = clienteDAO.read(request.getParameter("cpf"));
 		
 		if(cliente != null && cliente.getSenha().equals(request.getParameter("senha"))) {
-			Emprestimo emprestimo = new Emprestimo();
-			emprestimo.setIdCliente(cliente.getCpf());
-			emprestimo.setIdFuncionario(funcionario.getCpf());
-			emprestimo.setRenovacoes(0);
-			emprestimo.setIdLivro(request.getParameter("isbn"));
-			
 			EmprestimoDAO dao = new EmprestimoDAO(connection);
-			dao.create(emprestimo);
+			
+			//String[] isbn = request.getParameterValues("isbn");
+			//System.out.println(isbn.length);
+			for(String isbn : request.getParameterValues("isbn")) {
+				Emprestimo emprestimo = new Emprestimo();
+				emprestimo.setIdCliente(cliente.getCpf());
+				emprestimo.setIdFuncionario(funcionario.getCpf());
+				emprestimo.setRenovacoes(0);
+				emprestimo.setIdLivro(isbn);
+				
+				dao.create(emprestimo);
+			}
 			
 			return "cadastrar-emprestimo.jsp";
 		}

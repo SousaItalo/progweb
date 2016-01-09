@@ -18,7 +18,7 @@
         <table id="tabela-livros">
             <tr>
                 <td><input type="text" name="isbn"><br></td>
-                <td onclick="addCampo('Livro')">Add Livro</td>
+                <td onclick="addCampo('isbn')">Add Livro</td>
             </tr>
         </table>
         <input type="hidden" name="logica" value="CadastraEmprestimoLogic">
