@@ -92,6 +92,55 @@ public class EmprestimoDAO {
 		}
 	}
 	
+	public Emprestimo read(String cpf, String isbn) {
+		String sql = "SELECT * FROM emprestimo " +
+					 "WHERE id_cliente = ? AND id_livro = ? AND data_devolucao is null";
+		
+		try {
+			PreparedStatement statement = this.connection.prepareStatement(sql);
+			
+			statement.setString(1, cpf);
+			statement.setString(2, isbn);
+			
+			ResultSet resultado = statement.executeQuery();
+			if(resultado.next()) {
+				Emprestimo emprestimo = new Emprestimo();
+				emprestimo.setIdCliente(resultado.getString("id_cliente"));
+				emprestimo.setIdFuncionario(resultado.getString("id_funcionario"));
+				emprestimo.setRenovacoes(resultado.getInt("renovacoes"));
+				emprestimo.setIdLivro(resultado.getString("id_livro"));
+				
+				Calendar dataEmprestimo = Calendar.getInstance();
+				dataEmprestimo.setTime(resultado.getDate("data_emprestimo"));
+				emprestimo.setDataEmprestimo(dataEmprestimo);
+				
+				Calendar dataEntrega = Calendar.getInstance();
+				dataEntrega.setTime(resultado.getDate("data_entrega"));
+				emprestimo.setDataEntrega(dataEntrega);
+				
+				try {
+					Calendar dataDevolucao = Calendar.getInstance();
+					dataDevolucao.setTime(resultado.getDate("data_devolucao"));
+					emprestimo.setDataDevolucao(dataDevolucao);
+				} catch(NullPointerException e) {
+					emprestimo.setDataDevolucao(null);
+				}
+				
+				resultado.close();
+				statement.close();
+				
+				return emprestimo;
+			} else {
+				resultado.close();
+				statement.close();
+				
+				return null;
+			}
+		} catch(SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
 	public void update(Emprestimo emprestimo) {
 		String sql = "UPDATE emprestimo SET renovacoes = ?," +
 					 "data_devolucao = ?, data_entrega = ? " +

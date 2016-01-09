@@ -25,8 +25,8 @@ public class LoginLogic implements ILogica{
 			HttpSession session = request.getSession(true);
 			session.setAttribute("usuario", usuario);
 			return "cadastrar-emprestimo.jsp";
-		} else {
-			return "login.jsp"; 
 		}
+		
+		return "login.jsp"; 
 	}
 }
