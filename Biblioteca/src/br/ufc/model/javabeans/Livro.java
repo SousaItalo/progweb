@@ -1,15 +1,14 @@
 package br.ufc.model.javabeans;
 
-import java.util.ArrayList;
-import java.util.Calendar;
+import java.util.List;
 
 public class Livro {
 	private String isbn;
 	private String nome;
 	private String genero;
 	private int quantidade;
-	private Calendar dataPublicacao;
-	private ArrayList<String> escritores = new ArrayList<String>();
+	private int anoPublicacao;
+	private List<String> escritores;
 	/**
 	 * @return the isbn
 	 */
@@ -58,27 +57,32 @@ public class Livro {
 	public void setQuantidade(int quantidade) {
 		this.quantidade = quantidade;
 	}
+	
 	/**
-	 * @return the dataPublicacao
+	 * @return the anoPublicacao
 	 */
-	public Calendar getDataPublicacao() {
-		return dataPublicacao;
-	}
-	/**
-	 * @param dataPublicacao the dataPublicacao to set
-	 */
-	public void setDataPublicacao(Calendar dataPublicacao) {
-		this.dataPublicacao = dataPublicacao;
+	public int getAnoPublicacao() {
+		return anoPublicacao;
 	}
 	
-	public ArrayList<String> getEscritores() {
+	/**
+	 * @param anoPublicacao the anoPublicacao to set
+	 */
+	public void setAnoPublicacao(int anoPublicacao) {
+		this.anoPublicacao = anoPublicacao;
+	}
+	
+	/**
+	 * @return the escritores
+	 */
+	public List<String> getEscritores() {
 		return escritores;
 	}
 	/**
-	 * @param idAutor the idAutor to set
+	 * @param escritores the escritores to set
 	 */
-	public void setEscritores(String nome) {
-		this.escritores.add(nome);
+	public void setEscritores(List<String> escritores) {
+		this.escritores = escritores;
 	
 	}
 	

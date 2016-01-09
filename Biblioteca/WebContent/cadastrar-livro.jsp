@@ -19,13 +19,13 @@
 		Quantidade:<br>
 		<input type="text" name="quantidade"><br>
 		Data de Publicação:<br>
-		<input type="date" name="data" min="1979-12-31"><br>
+		<input type="text" maxlength="4" name="data" onkeypress="return SomenteNumero(event)"><br>
 		Autores:<br>
 		<div id="tabela-autores">
 			<table id="tabela-livros">
 				<tr>
 					<td><input type="text" name="autor"></td>
-					<td onclick="addCampo('autor')">teste</td>
+					<td onclick="addCampo('autor')">Add Autor</td>
 				</tr>
 			</table>
 		</div>
