@@ -52,51 +52,74 @@ public class LivroDAO {
 		}
 	}
 	
-	public Livro readByISBN(String isbn) {
-		String sqlLivros = "SELECT * FROM livros WHERE isbn = ?";
-		
-		String sqlAutores = "SELECT * FROM autores WHERE id_livro = ?";
+	public List<Livro> read(String isbn, String nome, String genero, String autor) {
+		String sql = "SELECT * FROM livros l, autores a " +	
+					 "WHERE l.isbn = a.id_livro";
 		
 		try {
-			PreparedStatement statement = this.connection.prepareStatement(sqlLivros);
+			PreparedStatement statement = this.connection.prepareStatement(sql);
 			
-			statement.setString(1, isbn);
-			
-			ResultSet resultadoLivros = statement.executeQuery();
-			
-			if(resultadoLivros.next()) {
-				Livro livro = new Livro();
-				livro.setIsbn(resultadoLivros.getString("isbn"));
-				livro.setNome(resultadoLivros.getString("nome"));
-				livro.setGenero(resultadoLivros.getString("genero"));
-				livro.setQuantidade(resultadoLivros.getInt("quantidade"));
-				livro.setAnoPublicacao(resultadoLivros.getInt("ano_pub"));
-				
-				statement.clearParameters();
-				statement = this.connection.prepareStatement(sqlAutores);
-				
+			int i = 0;
+			if(isbn != null) {
+				sql = sql + " AND isbn = ?";
 				statement.setString(1, isbn);
-				
-				ResultSet resultadoAutores = statement.executeQuery();
-				
-				List<String> autores = new ArrayList<>();
-				while(resultadoAutores.next()) {
-					autores.add(resultadoAutores.getString("autor"));
-				}
-				
-				livro.setEscritores(autores);
-				
-				resultadoLivros.close();
-				resultadoAutores.close();
-				statement.close();
-				
-				return livro;
+			}
+			if(nome != null) {
+				i =+ 1;
+				sql = sql + " AND nome LIKE ?";
+				statement.setString(i, nome + "%");
+			}
+			if(genero != null) {
+				i =+ 1;
+				sql = sql + " AND genero LIKE ?";
+				statement.setString(i, genero);
+			}
+			if(autor != null) {
+				i =+ 1;
+				sql = sql + " AND a.id_livro = (SELECT id_livro FROM autores WHERE autor = ?)";
+				statement.setString(i, autor);
 			}
 			
-			resultadoLivros.close();
+			List<Livro> livros = new ArrayList<>();
+			
+			String ultimoISBN = null;
+			Livro livro = null;
+			List<String> autores = null;
+			
+			ResultSet resultado = statement.executeQuery();
+			while(resultado.next()) {
+				if(ultimoISBN != resultado.getString("isbn")) {
+					
+					if(livro != null)
+						livros.add(livro);
+					
+					livro = new Livro();
+					livro.setIsbn(resultado.getString("isbn"));
+					livro.setNome(resultado.getString("nome"));
+					livro.setGenero(resultado.getString("genero"));
+					livro.setQuantidade(resultado.getInt("quantidade"));
+					livro.setAnoPublicacao(resultado.getInt("ano_pub"));
+					
+					autores = new ArrayList<>();
+					autores.add(resultado.getString("autor"));
+
+					livro.setEscritores(autores);
+					
+					ultimoISBN = resultado.getString("isbn");
+				} else {
+					autores.add(resultado.getString("autor"));
+					
+					livro.setEscritores(autores);
+				}
+
+				if(resultado.isLast())
+					livros.add(livro);
+			}
+			resultado.close();
 			statement.close();
 			
-			return null;
+			return livros;
+			
 		} catch(SQLException e) {
 			throw new RuntimeException(e);
 		}
