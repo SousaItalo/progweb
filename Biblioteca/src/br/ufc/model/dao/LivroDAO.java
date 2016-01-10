@@ -49,5 +49,20 @@ public class LivroDAO {
 			throw new RuntimeException(e);
 		}
 	}
+	
+	public void update(String isbn, int quantidade) {
+		String sql = "UPDATE livros SET quantidade = quantidade + ? WHERE isbn = ?";
+		
+		try {
+			PreparedStatement statement = this.connection.prepareStatement(sql);
+			statement.setInt(1, quantidade);
+			statement.setString(2, isbn);
+			
+			statement.execute();
+			statement.close();
+		} catch(SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
 
 }

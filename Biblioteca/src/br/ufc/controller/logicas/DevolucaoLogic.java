@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.ufc.model.dao.EmprestimoDAO;
+import br.ufc.model.dao.LivroDAO;
 import br.ufc.model.javabeans.Emprestimo;
 
 public class DevolucaoLogic implements ILogica{
@@ -25,6 +26,9 @@ public class DevolucaoLogic implements ILogica{
 			Calendar cal = Calendar.getInstance();
 			cal.setTime(new Date(System.currentTimeMillis()));
 			emprestimo.setDataDevolucao(cal);
+			
+			LivroDAO livroDAO = new LivroDAO(connection);
+			livroDAO.update(request.getParameter("isbn"), 1);
 			
 			dao.update(emprestimo);
 			

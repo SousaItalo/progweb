@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import br.ufc.model.dao.EmprestimoDAO;
+import br.ufc.model.dao.LivroDAO;
 import br.ufc.model.dao.UsuarioDAO;
 import br.ufc.model.javabeans.Emprestimo;
 import br.ufc.model.javabeans.Usuario;
@@ -33,6 +34,9 @@ public class CadastraEmprestimoLogic implements ILogica{
 				emprestimo.setIdFuncionario(funcionario.getCpf());
 				emprestimo.setRenovacoes(0);
 				emprestimo.setIdLivro(isbn);
+				
+				LivroDAO livroDAO = new LivroDAO(connection);
+				livroDAO.update(isbn, -1);
 				
 				dao.create(emprestimo);
 			}
