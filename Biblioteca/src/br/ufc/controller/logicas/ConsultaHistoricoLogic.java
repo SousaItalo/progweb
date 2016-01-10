@@ -11,7 +11,7 @@ import br.ufc.model.dao.EmprestimoDAO;
 import br.ufc.model.javabeans.Emprestimo;
 import br.ufc.model.javabeans.Usuario;
 
-public class ConsultarHistoricoLogic implements ILogica{
+public class ConsultaHistoricoLogic implements ILogica{
 
 	@Override
 	public String executa(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -25,6 +25,7 @@ public class ConsultarHistoricoLogic implements ILogica{
 		List<Emprestimo> emprestimos = emprestimoDAO.read(usuario.getCpf());
 
 		request.setAttribute("emprestimos", emprestimos);
+		
 		return "consultar-historico.jsp";
 	}
 
