@@ -11,7 +11,7 @@
     <h1>Cadastrar Empréstimo</h1>
     <form action="ControllerServlet" method="post">
         CPF:<br>
-        <input type="text" name="cpf"><br>
+        <input type="text" name="cpf" maxlength="11" onkeypress="return SomenteNumero(event)"><br>
         Senha:<br>
         <input type="password" name="senha"><br>
         Código do(s) livro(s):<br>

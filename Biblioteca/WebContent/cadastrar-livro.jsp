@@ -13,11 +13,11 @@
         Título:<br> 
 		<input type="text" name="titulo"><br>
 		ISBN:<br>
-		<input type="text" name="isbn"><br>
+		<input type="text" name="isbn" maxlength="13" onkeypress="return SomenteNumero(event)"><br>
 		Genero:<br>
 		<input type="text" name="genero"><br>
 		Quantidade:<br>
-		<input type="text" name="quantidade"><br>
+		<input type="text" name="quantidade" onkeypress="return SomenteNumero(event)"><br>
 		Data de Publicação:<br>
 		<input type="text" maxlength="4" name="data" onkeypress="return SomenteNumero(event)"><br>
 		Autores:<br>
