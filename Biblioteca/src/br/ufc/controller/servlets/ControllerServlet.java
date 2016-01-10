@@ -19,7 +19,7 @@ public class ControllerServlet extends HttpServlet {
 		String nomeDaClasse = "br.ufc.controller.logicas." + parametro;
 		
 		try {
-			//Obtém a classe.
+			//Obtem a classe.
 			Class<?> classe = Class.forName(nomeDaClasse);
 			
 			//Cria uma nova instância da classe, usando polimorfismo.
