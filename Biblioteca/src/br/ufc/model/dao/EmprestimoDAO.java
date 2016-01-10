@@ -118,13 +118,7 @@ public class EmprestimoDAO {
 				dataEntrega.setTime(resultado.getDate("data_entrega"));
 				emprestimo.setDataEntrega(dataEntrega);
 				
-				try {
-					Calendar dataDevolucao = Calendar.getInstance();
-					dataDevolucao.setTime(resultado.getDate("data_devolucao"));
-					emprestimo.setDataDevolucao(dataDevolucao);
-				} catch(NullPointerException e) {
-					emprestimo.setDataDevolucao(null);
-				}
+				emprestimo.setDataDevolucao(null);
 				
 				resultado.close();
 				statement.close();
