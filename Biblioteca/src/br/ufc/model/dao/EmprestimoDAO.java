@@ -113,6 +113,7 @@ public class EmprestimoDAO {
 				emprestimo.setIdFuncionario(resultado.getString("id_funcionario"));
 				emprestimo.setRenovacoes(resultado.getInt("renovacoes"));
 				emprestimo.setIdLivro(resultado.getString("id_livro"));
+				emprestimo.setNomeLivro(resultado.getString("nome"));
 				
 				Calendar dataEmprestimo = Calendar.getInstance();
 				dataEmprestimo.setTime(resultado.getDate("data_emprestimo"));
