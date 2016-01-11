@@ -19,11 +19,24 @@
         <% if(request.getAttribute("livros") != null){ %>
     	<div class="col-md-8">
     		<table id="consulta-livros" class="table table-striped">
+    			<thead>
+    				<tr>
+    					<td>Isbn</td>
+    					<td>Nome</td>
+    					<td>Genero</td>
+    					<td>Ano de pulicacao</td>
+    					<td>Exemplares disponiveis</td>
+    					<td>Autores</td>
+    				</tr>
+    			</thead>
     			<c:forEach items="${livros}" var="livro">
 	    			<tr>
 	    				<td>${livro.isbn}</td>
 	    				<td>${livro.nome}</td>
 	    				<td>${livro.genero}</td>
+	    				<td>${livro.anoPublicacao}</td>
+	    				<td>${livro.quantidade}</td>
+	    				<td><c:forEach items="${livro.escritores}" var="autor">${autor} </c:forEach></td>
 	    			<tr>
 	    		</c:forEach>
     		</table>	  
