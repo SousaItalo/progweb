@@ -53,31 +53,51 @@ public class LivroDAO {
 	}
 	
 	public List<Livro> read(String isbn, String nome, String genero, String autor) {
-		String sql = "SELECT * FROM livros l, autores a " +	
-					 "WHERE l.isbn = a.id_livro";
+		String sql = "SELECT * FROM livros l, autores a WHERE l.isbn = a.id_livro";
+		String sqlNome = " AND l.nome LIKE ?";
+		String sqlGenero = " AND l.genero LIKE ?";
+		String sqlAutor = " AND a.id_livro = (SELECT id_livro FROM autores WHERE autor LIKE ?)";
 		
 		try {
-			PreparedStatement statement = this.connection.prepareStatement(sql);
+			PreparedStatement statement = null;
 			
-			int i = 0;
 			if(isbn != null) {
-				sql = sql + " AND isbn = ?";
+				statement = this.connection.prepareStatement(sql + " AND isbn = ?");
 				statement.setString(1, isbn);
-			}
-			if(nome != null) {
-				i =+ 1;
-				sql = sql + " AND nome LIKE ?";
-				statement.setString(i, nome + "%");
-			}
-			if(genero != null) {
-				i =+ 1;
-				sql = sql + " AND genero LIKE ?";
-				statement.setString(i, genero);
-			}
-			if(autor != null) {
-				i =+ 1;
-				sql = sql + " AND a.id_livro = (SELECT id_livro FROM autores WHERE autor = ?)";
-				statement.setString(i, autor);
+			} else {
+				if(nome != null && genero == null && autor == null) { 
+					statement = this.connection.prepareStatement(sql + sqlNome);
+					statement.setString(1, nome);
+				}
+				if(nome != null && genero != null && autor == null) { 
+					statement = this.connection.prepareStatement(sql + sqlNome + sqlGenero);
+					statement.setString(1, nome);
+					statement.setString(2, genero);
+				}
+				if(nome != null && genero == null && autor != null) {
+					statement = this.connection.prepareStatement(sql + sqlNome + sqlAutor);
+					statement.setString(1, nome);
+					statement.setString(2, autor);
+				}
+				if(nome == null && genero != null && autor == null) {
+					statement = this.connection.prepareStatement(sql + sqlGenero);
+					statement.setString(1, genero);
+				}
+				if(nome == null && genero != null && autor != null) {
+					statement = this.connection.prepareStatement(sql + sqlGenero + sqlAutor);
+					statement.setString(1, genero);
+					statement.setString(2, autor);
+				}
+				if(nome == null && genero == null && autor != null) {
+					statement = this.connection.prepareStatement(sql + sqlAutor);
+					statement.setString(1, autor);
+				}
+				if(nome != null && genero != null && autor != null) {
+					statement = this.connection.prepareStatement(sql + sqlNome + sqlGenero + sqlAutor);
+					statement.setString(1, nome);
+					statement.setString(2, genero);
+					statement.setString(3, autor);
+				}
 			}
 			
 			List<Livro> livros = new ArrayList<>();
