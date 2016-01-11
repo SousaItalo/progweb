@@ -109,7 +109,12 @@ public class LivroDAO {
 			ResultSet resultado = statement.executeQuery();
 			while(resultado.next()) {
 
+<<<<<<< HEAD
 				if(!resultado.getString("isbn").equals(ultimoISBN)) {
+=======
+				if(ultimoISBN != resultado.getString("isbn")) {
+					System.out.println("aqui");
+>>>>>>> 1a1611dd64c0de7e42b755cda24b3a5d5b3cb22e
 
 					if(livro != null)
 						livros.add(livro);
@@ -128,6 +133,7 @@ public class LivroDAO {
 					
 					ultimoISBN = resultado.getString("isbn");
 				} else {
+					System.out.println("else");
 					autores.add(resultado.getString("autor"));
 					
 					livro.setEscritores(autores);
