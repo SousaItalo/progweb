@@ -61,42 +61,42 @@ public class LivroDAO {
 		try {
 			PreparedStatement statement = null;
 			
-			if(isbn != null) {
+			if(!isbn.equals("")) {
 				statement = this.connection.prepareStatement(sql + " AND isbn = ?");
 				statement.setString(1, isbn);
 			} else {
-				if(nome != null && genero == null && autor == null) { 
+				if(!nome.equals("") && genero.equals("") && autor.equals("")) { 
 					statement = this.connection.prepareStatement(sql + sqlNome);
-					statement.setString(1, nome);
+					statement.setString(1, nome + "%");
 				}
-				if(nome != null && genero != null && autor == null) { 
+				if(!nome.equals("") && !genero.equals("") && autor.equals("")) { 
 					statement = this.connection.prepareStatement(sql + sqlNome + sqlGenero);
-					statement.setString(1, nome);
-					statement.setString(2, genero);
+					statement.setString(1, nome + "%");
+					statement.setString(2, genero + "%");
 				}
-				if(nome != null && genero == null && autor != null) {
+				if(!nome.equals("") && genero.equals("") && !autor.equals("")) {
 					statement = this.connection.prepareStatement(sql + sqlNome + sqlAutor);
-					statement.setString(1, nome);
-					statement.setString(2, autor);
+					statement.setString(1, nome + "%");
+					statement.setString(2, autor + "%");
 				}
-				if(nome == null && genero != null && autor == null) {
+				if(nome.equals("") && !genero.equals("") && autor.equals("")) {
 					statement = this.connection.prepareStatement(sql + sqlGenero);
-					statement.setString(1, genero);
+					statement.setString(1, genero + "%");
 				}
-				if(nome == null && genero != null && autor != null) {
+				if(nome.equals("") && !genero.equals("") && !autor.equals("")) {
 					statement = this.connection.prepareStatement(sql + sqlGenero + sqlAutor);
-					statement.setString(1, genero);
-					statement.setString(2, autor);
+					statement.setString(1, genero + "%");
+					statement.setString(2, autor + "%");
 				}
-				if(nome == null && genero == null && autor != null) {
+				if(nome.equals("") && genero.equals("") && !autor.equals("")) {
 					statement = this.connection.prepareStatement(sql + sqlAutor);
-					statement.setString(1, autor);
+					statement.setString(1, autor + "%");
 				}
-				if(nome != null && genero != null && autor != null) {
+				if(!nome.equals("") && !genero.equals("") && !autor.equals("")) {
 					statement = this.connection.prepareStatement(sql + sqlNome + sqlGenero + sqlAutor);
-					statement.setString(1, nome);
-					statement.setString(2, genero);
-					statement.setString(3, autor);
+					statement.setString(1, nome + "%");
+					statement.setString(2, genero + "%");
+					statement.setString(3, autor + "%");
 				}
 			}
 			
@@ -108,8 +108,9 @@ public class LivroDAO {
 			
 			ResultSet resultado = statement.executeQuery();
 			while(resultado.next()) {
+
 				if(ultimoISBN != resultado.getString("isbn")) {
-					
+
 					if(livro != null)
 						livros.add(livro);
 					
