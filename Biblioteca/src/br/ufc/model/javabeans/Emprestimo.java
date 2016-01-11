@@ -10,6 +10,7 @@ public class Emprestimo {
 	public Calendar dataDevolucao;
 	public Calendar dataEntrega;
 	public int renovacoes;
+	private String nomeLivro;
 	/**
 	 * @return the idCliente
 	 */
@@ -93,5 +94,17 @@ public class Emprestimo {
 	 */
 	public void setRenovacoes(int renovacoes) {
 		this.renovacoes = renovacoes;
+	}
+	/**
+	 * @return the nomeLivro
+	 */
+	public String getNomeLivro() {
+		return nomeLivro;
+	}
+	/**
+	 * @param nomeLivro the nomeLivro to set
+	 */
+	public void setNomeLivro(String nomeLivro) {
+		this.nomeLivro = nomeLivro;
 	}
 }

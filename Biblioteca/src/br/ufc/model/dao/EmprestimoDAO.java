@@ -48,8 +48,8 @@ public class EmprestimoDAO {
 	}
 
 	public List<Emprestimo> read(String cpf) {
-		String sql = "SELECT * FROM emprestimo " +
-					 "WHERE id_cliente = ?";
+		String sql = "SELECT * FROM emprestimo e, livros l " +
+					 "WHERE e.id_livro = l.isbn AND id_cliente = ?";
 		
 		try {
 			List<Emprestimo> emprestimos = new ArrayList<>();
@@ -57,12 +57,16 @@ public class EmprestimoDAO {
 			statement.setString(1, cpf);
 
 			ResultSet resultado = statement.executeQuery();
+			if(!resultado.isBeforeFirst())
+				return null;
+			
 			while(resultado.next()) {
 				Emprestimo emprestimo = new Emprestimo();
 				emprestimo.setIdCliente(resultado.getString("id_cliente"));
 				emprestimo.setIdFuncionario(resultado.getString("id_funcionario"));
 				emprestimo.setRenovacoes(resultado.getInt("renovacoes"));
 				emprestimo.setIdLivro(resultado.getString("id_livro"));
+				emprestimo.setNomeLivro(resultado.getString("nome"));
 				
 				Calendar dataEmprestimo = Calendar.getInstance();
 				dataEmprestimo.setTime(resultado.getDate("data_emprestimo"));
