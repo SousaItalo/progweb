@@ -107,6 +107,9 @@ public class LivroDAO {
 			List<String> autores = null;
 			
 			ResultSet resultado = statement.executeQuery();
+			if(!resultado.isBeforeFirst())
+				return null;
+			
 			while(resultado.next()) {
 
 				if(!resultado.getString("isbn").equals(ultimoISBN)) {
