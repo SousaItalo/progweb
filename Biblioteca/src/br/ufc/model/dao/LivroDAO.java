@@ -102,14 +102,14 @@ public class LivroDAO {
 			
 			List<Livro> livros = new ArrayList<>();
 			
-			String ultimoISBN = null;
+			String ultimoISBN = "";
 			Livro livro = null;
 			List<String> autores = null;
 			
 			ResultSet resultado = statement.executeQuery();
 			while(resultado.next()) {
 
-				if(ultimoISBN != resultado.getString("isbn")) {
+				if(!resultado.getString("isbn").equals(ultimoISBN)) {
 
 					if(livro != null)
 						livros.add(livro);
