@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
 <jsp:include page="header.jsp"/>
     <h1>Consulta de livros</h1>
     <div class="row">
@@ -18,7 +19,7 @@
    	<% if(request.getAttribute("livros") != null){ %>
     	<div class="row">
     		<table id="consulta-livros">
-    			<c:forEach var="livro" items="${livros}">
+    			<c:forEach items="${list}" var="livro">
 	    			<tr>
 	    				<td></td>
 	    			<tr>
