@@ -1,4 +1,4 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <jsp:include page="header.jsp"/>
     <h1>Consulta de livros</h1>
     <div class="row">
@@ -11,17 +11,19 @@
             <input type="text" name="autor"><br/>
             Genero:<br/>
             <input type="text" name="genero"><br/>
-            <input type="hidden" name="ConsultaLivroLogic">
+            <input type="hidden" name="logica" value="ConsultaLivroLogic">
             <input type="submit" value="Consultar">
         </form>
     </div>
    	
    	<% if(request.getAttribute("livros") != null){ %>
     	<div class="row">
-    		<table id="consulta-livros">
-    			<c:forEach items="${list}" var="livro">
+    		<table id="consulta-livros" class="table table-striped">
+    			<c:forEach items="${livros}" var="livro">
 	    			<tr>
-	    				<td></td>
+	    				<td>${livro.isbn}</td>
+	    				<td>${livro.nome}</td>
+	    				<td>${livro.genero}</td>
 	    			<tr>
 	    		</c:forEach>
     		</table>	  
