@@ -110,6 +110,7 @@ public class LivroDAO {
 			while(resultado.next()) {
 
 				if(ultimoISBN != resultado.getString("isbn")) {
+					System.out.println("aqui");
 
 					if(livro != null)
 						livros.add(livro);
@@ -128,6 +129,7 @@ public class LivroDAO {
 					
 					ultimoISBN = resultado.getString("isbn");
 				} else {
+					System.out.println("else");
 					autores.add(resultado.getString("autor"));
 					
 					livro.setEscritores(autores);
