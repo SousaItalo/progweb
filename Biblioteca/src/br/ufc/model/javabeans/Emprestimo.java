@@ -1,6 +1,7 @@
 package br.ufc.model.javabeans;
 
 import java.util.Calendar;
+import java.util.Date;
 
 public class Emprestimo {
 	public String idCliente;
@@ -114,12 +115,19 @@ public class Emprestimo {
 	}
 	
 	public void setMulta(){
-		if(dataDevolucao != null && dataDevolucao.after(dataEntrega)){
-			dataDevolucao.set(Calendar.MILLISECOND, 0);
+		
+		Calendar dataAtual = Calendar.getInstance();
+		dataAtual.setTime(new Date(System.currentTimeMillis()));
+		
+		if(dataDevolucao == null && dataAtual.after(dataEntrega)){
+			dataAtual.set(Calendar.MILLISECOND, 0);
 			dataEntrega.set(Calendar.MILLISECOND, 0);
-			long devolucao = this.dataDevolucao.getTimeInMillis();
+			
+			long atual = dataAtual.getTimeInMillis();
 			long entrega = this.dataEntrega.getTimeInMillis();
-			long diferenca = (devolucao - entrega)/(24 * 60 * 60 * 1000);
+			
+			long diferenca = (atual - entrega)/(24 * 60 * 60 * 1000);
+			
 			this.multa = 0.5 * diferenca;
 		}else{
 			this.multa = 0.0;

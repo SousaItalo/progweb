@@ -22,7 +22,7 @@
 					<td>${emprestimoData}</td>
 					<fmt:formatDate value="${emprestimo.dataEntrega.time}" type="date" dateStyle="short" var="entregaData"/>
 					<td>${entregaData}</td>
-					<td></td>
+					<td>${emprestimo.multa}</td>
 					<td>${emprestimo.renovacoes}</td>
 					<td><form action="ControllerServlet" method="post">
 							<input type="hidden" name="isbn" value="${emprestimo.idLivro}">

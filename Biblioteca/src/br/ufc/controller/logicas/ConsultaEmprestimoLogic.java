@@ -18,7 +18,9 @@ public class ConsultaEmprestimoLogic implements ILogica{
 		
 		EmprestimoDAO dao = new EmprestimoDAO(connection);
 		List<Emprestimo> emprestimos = dao.read(request.getParameter("cpf"), false);
-		
+		for(Emprestimo e : emprestimos){
+			e.setMulta();
+		}
 		request.setAttribute("emprestimos", emprestimos);
 		
 		return "devolucao.jsp";

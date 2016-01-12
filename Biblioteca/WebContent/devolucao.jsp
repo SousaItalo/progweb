@@ -19,6 +19,7 @@
 						<td>Nome</td>
 						<td>Data de emprestimo</td>
 						<td>Data de entrega</td>
+						<td>Multa</td>
 						<td>Renovacoes</td>
 						<td>#</td>
 					</tr>
@@ -31,6 +32,7 @@
 						<td>${emprestimoData}</td>
 						<fmt:formatDate value="${emprestimo.dataEntrega.time}" type="date" dateStyle="short" var="entregaData"/>
 						<td>${entregaData}</td>
+						<td>${emprestimo.multa}</td>
 						<td>${emprestimo.renovacoes}</td>
 						<td>
 							<form action="ControllerServlet" method="post">
