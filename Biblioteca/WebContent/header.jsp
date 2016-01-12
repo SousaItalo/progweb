@@ -9,3 +9,4 @@
 </head>
 <body>
 	<div class="container">
+	<ul><li><a href="ControllerServlet?logica=ConsultaHistoricoLogic">Historico</a></li></ul>
