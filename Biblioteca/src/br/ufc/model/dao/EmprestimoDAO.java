@@ -47,9 +47,10 @@ public class EmprestimoDAO {
 		}
 	}
 
-	public List<Emprestimo> read(String cpf) {
-		String sql = "SELECT * FROM emprestimo e, livros l " +
-					 "WHERE e.id_livro = l.isbn AND id_cliente = ?";
+	public List<Emprestimo> read(String cpf, boolean ativo) {
+		String sql = "SELECT * FROM emprestimo e, livros l WHERE e.id_livro = l.isbn AND id_cliente = ?";;
+		if(!ativo) 
+			sql = sql + " AND data_devolucao is null";
 		
 		try {
 			List<Emprestimo> emprestimos = new ArrayList<>();
