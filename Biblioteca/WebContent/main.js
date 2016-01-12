@@ -28,7 +28,7 @@ function SomenteNumero(e){
 
 function renovar(isbn){
 	var form = document.createElement("form");
-	form.setAttribute("method", post);
+	form.setAttribute("method", "post");
     form.setAttribute("action", "ControllerServlet");
     
     var input = document.createElement("input");
@@ -38,7 +38,7 @@ function renovar(isbn){
     
     var logic = document.createElement("input");
     logic.setAttribute("type", "hidden");
-    logic.setAttribute("name", "logic")
+    logic.setAttribute("name", "logica")
     logic.setAttribute("value", "RenovacaoLogic");
     
     form.appendChild(input);
