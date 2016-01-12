@@ -22,7 +22,12 @@
 					<fmt:formatDate value="${emprestimo.dataEntrega.time}" type="date" dateStyle="short" var="entregaData"/>
 					<td>${entregaData}</td>
 					<td>${emprestimo.renovacoes}</td>
-					<td><button onclick="renovar(${emprestimo.idLivro})">Renovar</button></td>
+					<td><form action="ControllerServlet" method="post">
+							<input type="hidden" name="isbn" value="${emprestimo.idLivro}">
+							<input type="hidden" name="logica" value="RenovacaoLogic">
+							<input type="submit" value="Renovar">
+						</form>
+					</td>
 				</tr>
 				</c:forEach>
 			</tbody>
