@@ -1,0 +1,50 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>
+<jsp:include page="header.jsp"/>
+	<div class="row">
+		<div class="col-md-4">
+			<h1>Devolucao</h1>
+			<form action="ControllerServlet" method="post">
+				Cpf do cliente:<br/>
+				<input type="text" name="cpf">
+				<input type="hidden" name="logica" value="ConsultaEmprestimoLogic">
+				<input type="submit" value="Pesquisar">
+			</form>
+		</div>
+		<%if(request.getAttribute("emprestimos") != null){ %>
+		<div class="col-md-8">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<td>Nome</td>
+						<td>Data de emprestimo</td>
+						<td>Data de entrega</td>
+						<td>Renovacoes</td>
+						<td>#</td>
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach items="${emprestimos}" var="emprestimo">
+					<tr>
+						<td>${emprestimo.nomeLivro}</td>
+						<fmt:formatDate value="${emprestimo.dataEmprestimo.time}" type="date" dateStyle="short" var="emprestimoData"/>
+						<td>${emprestimoData}</td>
+						<fmt:formatDate value="${emprestimo.dataEntrega.time}" type="date" dateStyle="short" var="entregaData"/>
+						<td>${entregaData}</td>
+						<td>${emprestimo.renovacoes}</td>
+						<td>
+							<form action="ControllerServlet" method="post">
+								<input type="hidden" name="cpf" value="${emprestimo.idCliente}">
+								<input type="hidden" name="isbn" value="${emprestimo.idLivro}">
+								<input type="hidden" name="logica" value="DevolucaoLogic">
+								<input type="submit" value="Devolver">
+							</form>
+						</td>
+					</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+		</div>	
+		<%}%>
+	</div>
+<jsp:include page="footer.jsp"/>
