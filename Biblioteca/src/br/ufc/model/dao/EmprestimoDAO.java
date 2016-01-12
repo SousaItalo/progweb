@@ -98,7 +98,7 @@ public class EmprestimoDAO {
 	}
 	
 	public Emprestimo read(String cpf, String isbn) {
-		String sql = "SELECT * FROM emprestimo " +
+		String sql = "SELECT * FROM emprestimo e, livros l " +
 					 "WHERE id_cliente = ? AND id_livro = ? AND data_devolucao is null";
 		
 		try {
