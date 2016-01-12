@@ -22,13 +22,13 @@ public class FiltroConexao implements Filter{
 		try {
 			//Abre uma conexão com o banco.
 			Connection connection = new ConnectionFactory().getConnection();
-			
+
 			//Seta a conexão como um atributo do request.
 			request.setAttribute("connection", connection);
 			
 			//Prossegue o processamento do request.
 			fc.doFilter(request, response);
-			
+
 			//Após o processamento do request, fecha a conexão.
 			connection.close();
 		} catch(SQLException e) {
