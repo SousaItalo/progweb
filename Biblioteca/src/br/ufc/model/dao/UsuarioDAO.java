@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 import br.ufc.model.javabeans.Usuario;
 
 public class UsuarioDAO {
@@ -110,6 +109,26 @@ public class UsuarioDAO {
 			
 			statement.execute();
 			statement.close();			
+		} catch(SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
+	public boolean permission(char tipo, String uri) {
+		String sql = "SELECT uri FROM permissoes WHERE tipo = ? AND uri = ?";
+		
+		try {
+			PreparedStatement statement = this.connection.prepareStatement(sql);
+			statement.setString(1, String.valueOf(tipo));
+			statement.setString(2, uri);
+			
+			ResultSet resultado = statement.executeQuery();
+			
+			if(resultado.next())
+				return true;
+			else
+				return false;
+			
 		} catch(SQLException e) {
 			throw new RuntimeException(e);
 		}
