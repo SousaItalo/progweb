@@ -25,24 +25,3 @@ function SomenteNumero(e){
 	else  return false;
     }
 }
-
-function renovar(isbn){
-	var form = document.createElement("form");
-	form.setAttribute("method", "post");
-    form.setAttribute("action", "ControllerServlet");
-    
-    var input = document.createElement("input");
-    input.setAttribute("type", "hidden");
-    input.setAttribute("name", "isbn")
-    input.setAttribute("value", isbn);
-    
-    var logic = document.createElement("input");
-    logic.setAttribute("type", "hidden");
-    logic.setAttribute("name", "logica")
-    logic.setAttribute("value", "RenovacaoLogic");
-    
-    form.appendChild(input);
-    form.appendChild(logic);
-    
-    form.submit();
-}
