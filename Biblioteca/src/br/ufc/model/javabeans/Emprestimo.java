@@ -11,6 +11,7 @@ public class Emprestimo {
 	public Calendar dataEntrega;
 	public int renovacoes;
 	private String nomeLivro;
+	private double multa;
 	/**
 	 * @return the idCliente
 	 */
@@ -106,5 +107,22 @@ public class Emprestimo {
 	 */
 	public void setNomeLivro(String nomeLivro) {
 		this.nomeLivro = nomeLivro;
+	}
+	
+	public double getMulta(){
+		return this.multa;
+	}
+	
+	public void setMulta(){
+		if(dataDevolucao != null && dataDevolucao.after(dataEntrega)){
+			dataDevolucao.set(Calendar.MILLISECOND, 0);
+			dataEntrega.set(Calendar.MILLISECOND, 0);
+			long devolucao = this.dataDevolucao.getTimeInMillis();
+			long entrega = this.dataEntrega.getTimeInMillis();
+			long diferenca = (devolucao - entrega)/(24 * 60 * 60 * 1000);
+			this.multa = 0.5 * diferenca;
+		}else{
+			this.multa = 0.0;
+		}
 	}
 }

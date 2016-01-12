@@ -24,8 +24,7 @@ public class FiltroUsuario implements Filter{
 		
 		if(session != null) {
 			Usuario usuario = (Usuario) session.getAttribute("usuario");
-			String uri = req.getRequestURI();
-			
+			String uri = req.getRequestURI();	
 		}
 		
 	}

@@ -23,6 +23,12 @@ public class ConsultaHistoricoLogic implements ILogica{
 		
 		EmprestimoDAO emprestimoDAO = new EmprestimoDAO(connection);
 		List<Emprestimo> emprestimos = emprestimoDAO.read(usuario.getCpf(), true);
+		
+		//calcula as multas de todos os emprestimos retornados da chamada acima
+		for(Emprestimo e: emprestimos){
+			e.setMulta();
+			System.out.println(e.getMulta());
+		}
 
 		request.setAttribute("emprestimos", emprestimos);
 		
