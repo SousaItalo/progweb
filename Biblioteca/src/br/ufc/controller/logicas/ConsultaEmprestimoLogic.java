@@ -23,7 +23,7 @@ public class ConsultaEmprestimoLogic implements ILogica{
 		}
 		request.setAttribute("emprestimos", emprestimos);
 		
-		return "devolucao.jsp";
+		return "/WEB-INF/jsp/devolucao.jsp";
 	}
 
 }

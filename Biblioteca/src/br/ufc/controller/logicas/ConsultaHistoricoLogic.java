@@ -31,7 +31,7 @@ public class ConsultaHistoricoLogic implements ILogica{
 
 		request.setAttribute("emprestimos", emprestimos);
 		
-		return "consultar-historico.jsp";
+		return "/WEB-INF/jsp/consultar-historico.jsp";
 	}
 
 }

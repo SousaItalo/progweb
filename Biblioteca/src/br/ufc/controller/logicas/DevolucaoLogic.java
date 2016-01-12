@@ -30,10 +30,8 @@ public class DevolucaoLogic implements ILogica{
 			livroDAO.update(request.getParameter("isbn"), 1);
 			
 			dao.update(emprestimo);
-			
-			return "devolucao.jsp";
 		}
 		
-		return "devolucao.jsp";
+		return "/WEB-INF/jsp/devolucao.jsp";
 	}
 }

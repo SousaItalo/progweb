@@ -64,6 +64,6 @@ public class CadastraEmprestimoLogic implements ILogica{
 			request.setAttribute("mensagemDados", "Dados do cliente incorretos.");
 		}
 		
-		return "cadastrar-emprestimo.jsp";
+		return "/WEB-INF/jsp/cadastrar-emprestimo.jsp";
 	}
 }

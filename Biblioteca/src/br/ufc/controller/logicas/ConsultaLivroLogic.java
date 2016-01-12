@@ -25,7 +25,7 @@ public class ConsultaLivroLogic implements ILogica{
 		List<Livro> livros = dao.read(isbn, nome, genero, autor);
 		
 		request.setAttribute("livros", livros);
-		return "consultar-livros.jsp";
+		return "/WEB-INF/jsp/consultar-livros.jsp";
 	}
 
 }

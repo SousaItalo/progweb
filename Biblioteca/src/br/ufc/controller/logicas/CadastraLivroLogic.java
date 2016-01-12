@@ -26,7 +26,7 @@ public class CadastraLivroLogic implements ILogica{
 		LivroDAO dao = new LivroDAO(connection);
 		dao.create(livro);
 		
-		return "cadastrar-livro.jsp";
+		return "/WEB-INF/jsp/cadastrar-livro.jsp";
 	}
 
 }
