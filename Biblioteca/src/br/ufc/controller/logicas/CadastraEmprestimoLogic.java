@@ -1,6 +1,8 @@
 package br.ufc.controller.logicas;
 
 import java.sql.Connection;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -32,6 +34,7 @@ public class CadastraEmprestimoLogic implements ILogica{
 		if(cliente != null && cliente.getSenha().equals(request.getParameter("senha"))) {
 			LivroDAO livroDAO = new LivroDAO(connection);
 			EmprestimoDAO empDAO = new EmprestimoDAO(connection);
+			List<String> erros = new ArrayList<>();
 			
 			//Para cada livro que o cliente esteja alugando.
 			for(String isbn : request.getParameterValues("isbn")) {
@@ -49,13 +52,18 @@ public class CadastraEmprestimoLogic implements ILogica{
 					//Atualização no estoque de livros, e inserção do empréstimo.
 					livroDAO.update(isbn, -1);
 					empDAO.create(emprestimo);
+				} else {
+					erros.add(emprestimo.getNomeLivro());
 				}
 			}
 			
-			return "cadastrar-emprestimo.jsp";
+			if(!erros.isEmpty())
+				request.setAttribute("mensagemLivros", erros);
+			
+		} else {
+			request.setAttribute("mensagemDados", "Dados do cliente incorretos.");
 		}
 		
 		return "cadastrar-emprestimo.jsp";
 	}
-
 }
