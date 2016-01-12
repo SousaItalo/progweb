@@ -24,9 +24,8 @@ public class LoginLogic implements ILogica{
 		if(usuario != null && usuario.getSenha().equals(senha)) {
 			HttpSession session = request.getSession(true);
 			session.setAttribute("usuario", usuario);
-			return "/WEB-INF/jsp/home.jsp";
 		}
 		
-		return "index.jsp"; 
+		return "/WEB-INF/jsp/home.jsp";
 	}
 }
