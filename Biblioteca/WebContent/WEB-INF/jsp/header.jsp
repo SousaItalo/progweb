@@ -8,5 +8,10 @@
     <link href="/Biblioteca/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-	<div class="container">
-	<ul><li><a href="ControllerServlet?logica=ConsultaHistoricoLogic">Historico</a></li></ul>
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+		<ul class="menu-principal">
+			<li><a href="ControllerServlet?logica=ConsultaHistoricoLogic">Historico</a></li>
+		</ul>
+		</div>	
+	</nav>

@@ -1,13 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<jsp:include page="/WEB-INF/jsp/header.jsp"/>
-	<h1>Login</h1>
-	<form action="ControllerServlet" method="post">
-	CPF:<br>
-	<input type="text" name="cpf"><br>
-	Senha:<br>
-	<input type="password" name="senha"><br>
-	<input type="hidden" name="logica" value="LoginLogic">
-	<input type="submit" value="Entrar">
-	</form>
-<jsp:include page="/WEB-INF/jsp/footer.jsp"/>
+<html>
+	<head>
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<title>BibWeb</title>
+	</head>
+	<body>
+		<div class="container">
+			<h1>Login</h1>
+			<form action="ControllerServlet" method="post">
+				CPF:<br>
+				<input type="text" name="cpf"><br>
+				Senha:<br>
+				<input type="password" name="senha"><br>
+				<input type="hidden" name="logica" value="LoginLogic">
+				<input type="submit" value="Entrar">
+			</form>
+		</div>
+	</body>
+</html>
