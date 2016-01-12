@@ -10,6 +10,7 @@
 					<td>Data de emprestimo</td>
 					<td>Data de entrega</td>
 					<td>Renovacoes</td>
+					<td>#</td>
 				</tr>
 			</thead>
 			<tbody>
@@ -21,6 +22,7 @@
 					<fmt:formatDate value="${emprestimo.dataEntrega.time}" type="date" dateStyle="short" var="entregaData"/>
 					<td>${entregaData}</td>
 					<td>${emprestimo.renovacoes}</td>
+					<td><a href="ControllerServlet?logica=RenovacaoLogic"><button >Renovar</button></a></td>
 				</tr>
 				</c:forEach>
 			</tbody>
