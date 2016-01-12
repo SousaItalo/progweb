@@ -24,15 +24,15 @@ public class UsuarioDAO {
 			PreparedStatement statement = this.connection.prepareStatement(sql);
 			
 			statement.setString(1, usuario.getCpf());
-			statement.setString(2, usuario.getNome());
+			statement.setString(2, usuario.getNome().toUpperCase());
 			statement.setString(3, usuario.getSenha());
 			statement.setString(4, usuario.getTelefone());
 			statement.setString(5, String.valueOf(usuario.getTipo()));
 			statement.setString(6, String.valueOf(usuario.getSexo()));
 			statement.setString(7, usuario.getCep());
-			statement.setString(8, usuario.getRua());
-			statement.setString(9, usuario.getCidade());
-			statement.setString(10, usuario.getEstado());
+			statement.setString(8, usuario.getRua().toUpperCase());
+			statement.setString(9, usuario.getCidade().toUpperCase());
+			statement.setString(10, usuario.getEstado().toUpperCase());
 			
 			statement.execute();
 			statement.close();
@@ -90,9 +90,9 @@ public class UsuarioDAO {
 			statement.setString(2, usuario.getTelefone());
 			statement.setString(3, String.valueOf(usuario.getTipo()));
 			statement.setString(4, usuario.getCep());
-			statement.setString(5, usuario.getRua());
-			statement.setString(6, usuario.getCidade());
-			statement.setString(7, usuario.getEstado());
+			statement.setString(5, usuario.getRua().toUpperCase());
+			statement.setString(6, usuario.getCidade().toUpperCase());
+			statement.setString(7, usuario.getEstado().toUpperCase());
 			
 			statement.execute();
 			statement.close();

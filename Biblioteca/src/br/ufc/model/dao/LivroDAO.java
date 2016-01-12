@@ -28,8 +28,8 @@ public class LivroDAO {
 			PreparedStatement statementLivros = this.connection.prepareStatement(sqlLivros);
 			
 			statementLivros.setString(1, livro.getIsbn());
-			statementLivros.setString(2, livro.getNome());
-			statementLivros.setString(3, livro.getGenero());
+			statementLivros.setString(2, livro.getNome().toUpperCase());
+			statementLivros.setString(3, livro.getGenero().toUpperCase());
 			statementLivros.setInt(4, livro.getQuantidade());
 			statementLivros.setInt(5, livro.getAnoPublicacao());
 			
@@ -39,7 +39,7 @@ public class LivroDAO {
 			for(String elemento : escritores) {
 				PreparedStatement statementAutores = this.connection.prepareStatement(sqlAutores);
 				statementAutores.setString(1, livro.getIsbn());
-				statementAutores.setString(2, elemento);
+				statementAutores.setString(2, elemento.toUpperCase());
 				
 				statementAutores.execute();
 				statementAutores.close();
@@ -67,36 +67,36 @@ public class LivroDAO {
 			} else {
 				if(!nome.equals("") && genero.equals("") && autor.equals("")) { 
 					statement = this.connection.prepareStatement(sql + sqlNome);
-					statement.setString(1, nome + "%");
+					statement.setString(1, nome.toUpperCase() + "%");
 				}
 				if(!nome.equals("") && !genero.equals("") && autor.equals("")) { 
 					statement = this.connection.prepareStatement(sql + sqlNome + sqlGenero);
-					statement.setString(1, nome + "%");
-					statement.setString(2, genero + "%");
+					statement.setString(1, nome.toUpperCase() + "%");
+					statement.setString(2, genero.toUpperCase() + "%");
 				}
 				if(!nome.equals("") && genero.equals("") && !autor.equals("")) {
 					statement = this.connection.prepareStatement(sql + sqlNome + sqlAutor);
-					statement.setString(1, nome + "%");
-					statement.setString(2, autor + "%");
+					statement.setString(1, nome.toUpperCase() + "%");
+					statement.setString(2, autor.toUpperCase() + "%");
 				}
 				if(nome.equals("") && !genero.equals("") && autor.equals("")) {
 					statement = this.connection.prepareStatement(sql + sqlGenero);
-					statement.setString(1, genero + "%");
+					statement.setString(1, genero.toUpperCase() + "%");
 				}
 				if(nome.equals("") && !genero.equals("") && !autor.equals("")) {
 					statement = this.connection.prepareStatement(sql + sqlGenero + sqlAutor);
-					statement.setString(1, genero + "%");
-					statement.setString(2, autor + "%");
+					statement.setString(1, genero.toUpperCase() + "%");
+					statement.setString(2, autor.toUpperCase() + "%");
 				}
 				if(nome.equals("") && genero.equals("") && !autor.equals("")) {
 					statement = this.connection.prepareStatement(sql + sqlAutor);
-					statement.setString(1, autor + "%");
+					statement.setString(1, autor.toUpperCase() + "%");
 				}
 				if(!nome.equals("") && !genero.equals("") && !autor.equals("")) {
 					statement = this.connection.prepareStatement(sql + sqlNome + sqlGenero + sqlAutor);
-					statement.setString(1, nome + "%");
-					statement.setString(2, genero + "%");
-					statement.setString(3, autor + "%");
+					statement.setString(1, nome.toUpperCase() + "%");
+					statement.setString(2, genero.toUpperCase() + "%");
+					statement.setString(3, autor.toUpperCase() + "%");
 				}
 			}
 			

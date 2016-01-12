@@ -32,7 +32,7 @@ public class RenovacaoLogic implements ILogica{
 		
 		dao.update(emprestimo);
 		
-		return "index.jsp";
+		return "ControllerServlet?logica=ConsultaHistoricoLogic";
 	}
 
 	
