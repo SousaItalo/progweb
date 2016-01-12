@@ -27,6 +27,6 @@ public class LoginLogic implements ILogica{
 			return "cadastrar-emprestimo.jsp";
 		}
 		
-		return "login.jsp"; 
+		return "index.jsp"; 
 	}
 }
