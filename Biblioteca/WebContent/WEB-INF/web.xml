@@ -9,22 +9,28 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-  
   <filter>
-  	<filter-name>FiltroConexao</filter-name>
-  	<filter-class>br.ufc.filters.FiltroConexao</filter-class>
+    <filter-name>FiltroConexao</filter-name>
+    <filter-class>br.ufc.filters.FiltroConexao</filter-class>
   </filter>
   <filter-mapping>
-  	<filter-name>FiltroConexao</filter-name>
-  	<url-pattern>/ControllerServlet</url-pattern>
+    <filter-name>FiltroConexao</filter-name>
+    <url-pattern>/ControllerServlet</url-pattern>
   </filter-mapping>
-  
   <servlet>
-  	<servlet-name>ControllerServlet</servlet-name>
-  	<servlet-class>br.ufc.controller.servlets.ControllerServlet</servlet-class>
+    <servlet-name>ControllerServlet</servlet-name>
+    <servlet-class>br.ufc.controller.servlets.ControllerServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-  	<servlet-name>ControllerServlet</servlet-name>
-  	<url-pattern>/ControllerServlet</url-pattern>
+    <servlet-name>ControllerServlet</servlet-name>
+    <url-pattern>/ControllerServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>PaginaServlet</servlet-name>
+    <servlet-class>br.ufc.controller.servlets.PaginaServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PaginaServlet</servlet-name>
+    <url-pattern>/PaginaServlet</url-pattern>
   </servlet-mapping>
 </web-app>
