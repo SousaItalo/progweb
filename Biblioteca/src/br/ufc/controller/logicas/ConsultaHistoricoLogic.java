@@ -25,10 +25,11 @@ public class ConsultaHistoricoLogic implements ILogica{
 		List<Emprestimo> emprestimos = emprestimoDAO.read(usuario.getCpf(), true);
 		
 		//calcula as multas de todos os emprestimos retornados da chamada acima
-		for(Emprestimo e: emprestimos){
-			e.setMulta();
+		if(emprestimos != null) {
+			for(Emprestimo e: emprestimos){
+				e.setMulta();
+			}
 		}
-
 		request.setAttribute("emprestimos", emprestimos);
 		
 		return "/WEB-INF/jsp/consultar-historico.jsp";
