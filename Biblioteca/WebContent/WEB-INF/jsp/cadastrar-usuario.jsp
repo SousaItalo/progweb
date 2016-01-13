@@ -1,8 +1,8 @@
 <jsp:include page="header.jsp"/>
-	<div class="row">
-		<div class="col-md-4">
+	<div class="row formulario">
 		<h1>Cadastrar Usuário</h1>
 			<form action=ControllerServlet method="post">
+				<div class="col-md-4">
 				Nome:<br>
 				<input type="text" name="nome" class="form-control"><br>
 				CPF:<br>
@@ -34,7 +34,8 @@
 			  		</label>
 			  		<br/>
 			  	</div>
-			  	
+			  	</div>
+			  	<div class="col-md-4">	
 			  	CEP:<br>
 			  	<input type="text" name="cep" class="form-control"><br>
 			  	Rua:<br>
@@ -45,7 +46,7 @@
 			  	<input type="text" name="estado" class="form-control"><br>
 			  	<input type="hidden" name ="logica" value="CadastraUsuarioLogic">
 			  	<input type="submit" value="Cadastrar" class="btn btn-default form-btn">
+			  	</div>
 			</form>
-		</div>
 	</div>
 <jsp:include page="footer.jsp"/>
