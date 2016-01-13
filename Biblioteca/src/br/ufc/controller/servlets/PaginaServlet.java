@@ -36,7 +36,8 @@ public class PaginaServlet extends HttpServlet {
 			String pagina = prefixo + request.getParameter("pagina");
 			request.getRequestDispatcher(pagina).forward(request, response);
 		} else {
-			response.sendRedirect("index.jsp");
+			request.setAttribute("erro", "É necessário estar logado para acessar esse conteúdo.");
+			request.getRequestDispatcher("index.jsp").forward(request, response);
 		}
 	}
 

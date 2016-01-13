@@ -33,6 +33,9 @@
 						<input type="hidden" name="logica" value="LoginLogic">
 						<input type="submit" value="Entrar" class="btn btn-default">
 					</form>
+					<% if(request.getAttribute("erro") != null) {%>
+					<%= request.getAttribute("erro") %>
+					<%}%>
 				</div>
 			</div>
 		</div>

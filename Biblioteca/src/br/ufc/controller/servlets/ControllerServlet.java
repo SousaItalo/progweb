@@ -5,6 +5,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import br.ufc.controller.logicas.ILogica;
 
@@ -17,6 +18,12 @@ public class ControllerServlet extends HttpServlet {
 		//Recebe parametro logica do request e gera o nome da classe responsável pela mesma.
 		String parametro = request.getParameter("logica");
 		String nomeDaClasse = "br.ufc.controller.logicas." + parametro;
+		
+		HttpSession session = request.getSession(false);
+		if(session != null && session.getAttribute("usuario") == null && (parametro == null || !parametro.equals("LoginLogic"))) {
+			request.setAttribute("erro", "É necessário estar logado para acessar esse conteúdo.");
+			request.getRequestDispatcher("index.jsp").forward(request, response);
+		}
 		
 		try {
 			//Obtem a classe.

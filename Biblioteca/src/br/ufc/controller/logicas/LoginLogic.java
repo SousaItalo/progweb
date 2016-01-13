@@ -26,8 +26,8 @@ public class LoginLogic implements ILogica{
 		Usuario usuario = dao.read(cpf);
 		
 		if(usuario != null && usuario.getSenha().equals(senha)) {
-			
-			if(request.getParameter("lembrar").equals("Lembrar")) {
+			String lembrar = request.getParameter("lembrar");
+			if(lembrar != null && lembrar.equals("Lembrar")) {
 				Cookie cookie = new Cookie("cookies.login", usuario.getCpf());
 	            cookie.setMaxAge(60);
 	            response.addCookie(cookie);
