@@ -24,7 +24,9 @@
 					<li><a href="PaginaServlet?pagina=cadastrar-usuario.jsp">Cadastrar Usuario</a></li>
 					<li><a href="PaginaServlet?pagina=cadastrar-livro.jsp">Cadastrar Livro</a></li>
 					<li><a href="PaginaServlet?pagina=cadastrar-emprestimo.jsp">Realizar Empresitmo</a></li>
-				<%}%>	
+					<li><a href="PaginaServlet?pagina=cadastrar-noticia.jsp">Cadastrar Noticia</a></li>
+				<%}%>
+				<li><a href="ControllerServlet?logica=LogoutLogic">Logout</a></li>	
 			</ul>
 			</div>	
 		</nav>
