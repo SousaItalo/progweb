@@ -6,12 +6,21 @@
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <title>BibWeb</title>
     <link href="/Biblioteca/css/bootstrap.min.css" rel="stylesheet">
+     <link href="/Biblioteca/css/custom.css" rel="stylesheet">
 </head>
 <body>
-	<nav class="navbar navbar-default navbar-fixed-top">
-		<div class="container">
-		<ul class="menu-principal">
-			<li><a href="ControllerServlet?logica=ConsultaHistoricoLogic">Historico</a></li>
-		</ul>
-		</div>	
-	</nav>
+	<div class="topo">
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="container">
+			<ul id="menu-principal" class="nav navbar-nav navbar-right">
+				<li><a href="ControllerServlet?logica=ConsultaHistoricoLogic">Historico</a></li>
+				<li><a>Cadastrar Usuario</a></li>
+				<li><a>Cadastrar Livro</a></li>
+				<li><a>Realizar Empresitmo</a></li>
+				<li><a>Consultar Acervo</a></li>
+				<li><a>Devolucao</a></li>
+			</ul>
+			</div>	
+		</nav>
+	</div>
+	<div class="container">
