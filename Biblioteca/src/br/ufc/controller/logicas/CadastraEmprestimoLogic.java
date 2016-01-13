@@ -37,7 +37,7 @@ public class CadastraEmprestimoLogic implements ILogica{
 			List<String> erros = new ArrayList<>();
 			
 			List<Emprestimo> emprestimosAtivos = empDAO.read(cliente.getCpf(), false);
-			if((emprestimosAtivos.size() + request.getParameterValues("isbn").length) > 5) {
+			if(emprestimosAtivos != null && (emprestimosAtivos.size() + request.getParameterValues("isbn").length) > 5) {
 				request.setAttribute("erro", "O cliente já tem " + emprestimosAtivos.size() + " empréstimos ativos.");
 				return "/WEB-INF/jsp/cadastrar-emprestimo.jsp";
 			}
