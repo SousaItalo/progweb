@@ -12,7 +12,8 @@ public class PaginaServlet extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		String pagina = request.getParameter("pagina");
+		String prefixo = "/WEB-INF/jsp/";
+		String pagina = prefixo + request.getParameter("pagina");
 		request.getRequestDispatcher(pagina).forward(request, response);
 		
 	}

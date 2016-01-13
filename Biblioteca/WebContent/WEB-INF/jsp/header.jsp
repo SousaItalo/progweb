@@ -14,11 +14,11 @@
 			<div class="container">
 			<ul id="menu-principal" class="nav navbar-nav navbar-right">
 				<li><a href="ControllerServlet?logica=ConsultaHistoricoLogic">Historico</a></li>
-				<li><a>Cadastrar Usuario</a></li>
-				<li><a>Cadastrar Livro</a></li>
-				<li><a>Realizar Empresitmo</a></li>
-				<li><a>Consultar Acervo</a></li>
-				<li><a>Devolucao</a></li>
+				<li><a href="PaginaServlet?pagina=cadastrar-usuario.jsp">Cadastrar Usuario</a></li>
+				<li><a href="PaginaServlet?pagina=cadastrar-livro.jsp">Cadastrar Livro</a></li>
+				<li><a href="PaginaServlet?pagina=cadastrar-emprestimo.jsp">Realizar Empresitmo</a></li>
+				<li><a href="PaginaServlet?pagina=consultar-livros.jsp">Consultar Acervo</a></li>
+				<li><a  href="PaginaServlet?pagina=devolucao.jsp">Devolucao</a></li>
 			</ul>
 			</div>	
 		</nav>
