@@ -23,7 +23,14 @@ public class PaginaServlet extends HttpServlet {
 		
 		if(session != null && session.getAttribute("usuario") != null) {
 			
-			if(request.getParameter("pagina").equals("home.jsp")) {
+			String pagina = request.getParameter("pagina");
+			String destino = "/WEB-INF/jsp/" + pagina;
+			
+			if(pagina != null && !pagina.equals("consultar-livros.jsp")) {
+				request.getRequestDispatcher("/WEB-INF/jsp/home.jsp").forward(request, response);
+			}
+			
+			if(pagina != null && pagina.equals("home.jsp")) {
 				Connection connection = (Connection) request.getAttribute("connection");
 			
 				ServletContext context = request.getServletContext();
@@ -32,9 +39,7 @@ public class PaginaServlet extends HttpServlet {
 				context.setAttribute("noticias", noticia);
 			}
 			
-			String prefixo = "/WEB-INF/jsp/";
-			String pagina = prefixo + request.getParameter("pagina");
-			request.getRequestDispatcher(pagina).forward(request, response);
+			request.getRequestDispatcher(destino).forward(request, response);
 		} else {
 			request.setAttribute("erro", "É necessário estar logado para acessar esse conteúdo.");
 			request.getRequestDispatcher("index.jsp").forward(request, response);
