@@ -24,13 +24,15 @@ public class RenovacaoLogic implements ILogica{
 		EmprestimoDAO dao = new EmprestimoDAO(connection);
 		Emprestimo emprestimo = dao.read(usuario.getCpf(), request.getParameter("isbn"));
 		
-		Calendar novaEntrega = emprestimo.getDataEntrega();
-		novaEntrega.add(Calendar.DATE, 14);
-		
-		emprestimo.setDataEntrega(novaEntrega);
-		emprestimo.setRenovacoes(emprestimo.getRenovacoes() + 1);
-		
-		dao.update(emprestimo);
+		if(emprestimo != null) {
+			Calendar novaEntrega = emprestimo.getDataEntrega();
+			novaEntrega.add(Calendar.DATE, 14);
+			
+			emprestimo.setDataEntrega(novaEntrega);
+			emprestimo.setRenovacoes(emprestimo.getRenovacoes() + 1);
+			
+			dao.update(emprestimo);
+		}
 		
 		return "ControllerServlet?logica=ConsultaHistoricoLogic";
 	}
