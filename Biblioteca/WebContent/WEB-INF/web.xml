@@ -17,6 +17,10 @@
     <filter-name>FiltroConexao</filter-name>
     <url-pattern>/ControllerServlet</url-pattern>
   </filter-mapping>
+  <filter-mapping>
+    <filter-name>FiltroConexao</filter-name>
+    <url-pattern>/PaginaServlet</url-pattern>
+  </filter-mapping>
   <servlet>
     <servlet-name>ControllerServlet</servlet-name>
     <servlet-class>br.ufc.controller.servlets.ControllerServlet</servlet-class>
