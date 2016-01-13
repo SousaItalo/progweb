@@ -20,10 +20,10 @@
 							<td><input type="text" name="autor" class="form-control"></td>
 							<td onclick="addCampo('autor')">Add Autor</td>
 						</tr>
-					</table>
+					</table><br/>
 				</div>
 				<input type="hidden" name ="logica" value="CadastraLivroLogic">
-			  	<input type="submit" value="Cadastrar">
+			  	<input type="submit" value="Cadastrar" class="btn btn-default">
 			</form>
 		</div>
 	</div>
