@@ -14,7 +14,8 @@ public class PaginaServlet extends HttpServlet {
 			throws ServletException, IOException {
 		
 		HttpSession session = request.getSession(false);
-		if(session != null) {
+		
+		if(session != null && session.getAttribute("usuario") != null) {
 			String prefixo = "/WEB-INF/jsp/";
 			String pagina = prefixo + request.getParameter("pagina");
 			request.getRequestDispatcher(pagina).forward(request, response);
