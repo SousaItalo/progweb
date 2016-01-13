@@ -7,15 +7,19 @@
 	</head>
 	<body>
 		<div class="container">
-			<h1>Login</h1>
-			<form action="ControllerServlet" method="post">
-				CPF:<br>
-				<input type="text" name="cpf" class="form-control"><br>
-				Senha:<br>
-				<input type="password" name="senha" class="form-control"><br>
-				<input type="hidden" name="logica" value="LoginLogic">
-				<input type="submit" value="Entrar">
-			</form>
+			<div class="row">
+				<div class="col-md-4 col-md-offset-4">
+					<h1>Login</h1>
+					<form action="ControllerServlet" method="post">
+						CPF:<br>
+						<input type="text" name="cpf" class="form-control"><br>
+						Senha:<br>
+						<input type="password" name="senha" class="form-control"><br>
+						<input type="hidden" name="logica" value="LoginLogic">
+						<input type="submit" value="Entrar" class="btn btn-default">
+					</form>
+				</div>
+			</div>
 		</div>
 	</body>
 </html>
