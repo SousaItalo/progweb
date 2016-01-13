@@ -29,7 +29,12 @@
 						<input type="text" name="cpf" value="<%= loginCookie%>" class="form-control"><br>
 						Senha:<br>
 						<input type="password" name="senha" class="form-control"><br>
-						<input type="checkbox" name="lembrar" value="Lembrar"> Lembrar<br>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" name="lembrar" value="Lembrar"> Lembrar
+							</label>
+						</div>
+						<br/>
 						<input type="hidden" name="logica" value="LoginLogic">
 						<input type="submit" value="Entrar" class="btn btn-default">
 					</form>
