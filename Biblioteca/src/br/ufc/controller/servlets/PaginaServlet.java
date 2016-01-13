@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import br.ufc.model.dao.NoticiaDAO;
 import br.ufc.model.javabeans.Noticia;
+import br.ufc.model.javabeans.Usuario;
 
 public class PaginaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -20,13 +21,14 @@ public class PaginaServlet extends HttpServlet {
 			throws ServletException, IOException {
 		
 		HttpSession session = request.getSession(false);
+		Usuario usuario = (Usuario) session.getAttribute("usuario");
 		
-		if(session != null && session.getAttribute("usuario") != null) {
+		if(session != null && usuario != null) {
 			
 			String pagina = request.getParameter("pagina");
 			String destino = "/WEB-INF/jsp/" + pagina;
 			
-			if(pagina != null && !pagina.equals("consultar-livros.jsp")) {
+			if(pagina != null && !pagina.equals("consultar-livros.jsp") && usuario.getTipo() == 'C') {
 				request.getRequestDispatcher("/WEB-INF/jsp/home.jsp").forward(request, response);
 			}
 			
