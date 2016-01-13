@@ -9,6 +9,7 @@ function addCampo(nome) {
      
     input.setAttribute("type", "text");
     input.setAttribute("name", nome);
+    input.setAttribute("class", "form-control");
     
     td1.appendChild(input);
     

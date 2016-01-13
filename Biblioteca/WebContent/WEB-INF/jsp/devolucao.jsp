@@ -5,10 +5,10 @@
 		<div class="col-md-4">
 			<h1>Devolucao</h1>
 			<form action="ControllerServlet" method="post">
-				Cpf do cliente:<br/>
-				<input type="text" name="cpf">
+				CPF do cliente:<br/>
+				<input type="text" name="cpf" class="form-control"><br/>
 				<input type="hidden" name="logica" value="ConsultaEmprestimoLogic">
-				<input type="submit" value="Pesquisar">
+				<input type="submit" value="Pesquisar" class="btn btn-default">
 			</form>
 		</div>
 		<%if(request.getAttribute("emprestimos") != null){ %>
