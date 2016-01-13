@@ -5,15 +5,15 @@
         <div class="col-md-4">
 	        <form action="ControllerServlet" method="post">
 	            ISBN:<br/>
-	            <input type="text" name="isbn"><br/>
+	            <input type="text" name="isbn" class="form-control"><br/>
 	            Titulo do livro:<br/>
-	            <input type="text" name="nome"><br/>
+	            <input type="text" name="nome" class="form-control"><br/>
 	            Nome do autor:<br/>
-	            <input type="text" name="autor"><br/>
+	            <input type="text" name="autor" class="form-control"><br/>
 	            Genero:<br/>
-	            <input type="text" name="genero"><br/>
+	            <input type="text" name="genero" class="form-control"><br/>
 	            <input type="hidden" name="logica" value="ConsultaLivroLogic">
-	            <input type="submit" value="Consultar">
+	            <input type="submit" value="Consultar" class="btn btn-default">
 	        </form>
         </div>
         <% if(request.getAttribute("livros") != null){ %>
