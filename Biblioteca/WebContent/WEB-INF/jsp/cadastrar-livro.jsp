@@ -18,7 +18,7 @@
 					<table id="tabela-livros">
 						<tr>
 							<td><input type="text" name="autor" class="form-control"></td>
-							<td onclick="addCampo('autor')">Add Autor</td>
+							<td onclick="addCampo('autor')"class="btn btn-default">	&nbsp;<span class="glyphicon glyphicon glyphicon-plus" aria-hidden="true"></span></td>
 						</tr>
 					</table><br/>
 				</div>

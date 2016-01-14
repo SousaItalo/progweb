@@ -7,7 +7,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <title>BibWeb</title>
     <link href="/Biblioteca/css/bootstrap.min.css" rel="stylesheet">
-     <link href="/Biblioteca/css/custom.css" rel="stylesheet">
+    <link href="/Biblioteca/css/custom.css" rel="stylesheet">
+    <link href="/Biblioteca/fonts/">
 </head>
 <body>
 	<div class="topo">

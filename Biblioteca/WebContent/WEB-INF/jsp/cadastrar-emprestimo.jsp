@@ -11,10 +11,11 @@
 		    <table id="tabela-livros">
 		        <tr>
 		            <td><input type="text" name="isbn" class="form-control"></td>
-		            <td onclick="addCampo('isbn')">Add Livro</td>
+		            <td onclick="addCampo('isbn')" class="btn btn-default">	&nbsp;<span class="glyphicon glyphicon glyphicon-plus" aria-hidden="true"></span></td>
 		        </tr>
 		    </table>
 		    <input type="hidden" name="logica" value="CadastraEmprestimoLogic">
+		    <br/>
 		    <input type="submit" value="Cadastrar" class="btn btn-default">
 		</form>
 	</div>
