@@ -48,9 +48,12 @@ public class EmprestimoDAO {
 	}
 
 	public List<Emprestimo> read(String cpf, boolean ativo) {
-		String sql = "SELECT * FROM emprestimo e, livros l WHERE e.id_livro = l.isbn AND id_cliente = ?";;
+		String sql = "SELECT * FROM emprestimo e, livros l WHERE e.id_livro = l.isbn AND id_cliente = ?"; 
+		String order = " ORDER BY e.id_emprestimo DESC";
 		if(!ativo) 
-			sql = sql + " AND data_devolucao is null";
+			sql = sql + " AND data_devolucao is null" + order;
+		else
+			sql = sql + order;
 		
 		try {
 			List<Emprestimo> emprestimos = new ArrayList<>();

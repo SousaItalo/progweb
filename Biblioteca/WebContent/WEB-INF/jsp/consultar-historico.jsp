@@ -23,7 +23,7 @@
 					<fmt:formatDate value="${emprestimo.dataEntrega.time}" type="date" dateStyle="short" var="entregaData"/>
 					<td>${entregaData}</td>
 					<td>${emprestimo.multa}</td>
-					<td>${emprestimo.renovacoes}</td>
+					<td>${emprestimo.renovacoes} / 10</td>
 					<td><form action="ControllerServlet" method="post">
 							<input type="hidden" name="isbn" value="${emprestimo.idLivro}">
 							<input type="hidden" name="logica" value="RenovacaoLogic">
