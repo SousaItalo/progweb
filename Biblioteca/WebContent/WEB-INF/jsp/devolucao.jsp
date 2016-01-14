@@ -39,7 +39,12 @@
 								<input type="hidden" name="cpf" value="${emprestimo.idCliente}">
 								<input type="hidden" name="isbn" value="${emprestimo.idLivro}">
 								<input type="hidden" name="logica" value="DevolucaoLogic">
-								<input type="submit" value="Devolver">
+								<c:if test="${emprestimo.multa==0}">
+									<input type="submit" value="Devolver" class="btn btn-default">
+								</c:if>
+								<c:if test="${emprestimo.multa>0}">
+									<input type="submit" value="Devolver" class="btn btn-danger">
+								</c:if>
 							</form>
 						</td>
 					</tr>
