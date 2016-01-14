@@ -10,7 +10,7 @@
 		    Código do(s) livro(s):<br>
 		    <table id="tabela-livros">
 		        <tr>
-		            <td><input type="text" name="isbn" class="form-control"><br></td>
+		            <td><input type="text" name="isbn" class="form-control"></td>
 		            <td onclick="addCampo('isbn')">Add Livro</td>
 		        </tr>
 		    </table>
