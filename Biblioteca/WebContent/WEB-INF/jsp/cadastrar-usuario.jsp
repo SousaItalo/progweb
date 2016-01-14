@@ -8,11 +8,11 @@
 						Nome:<br>
 						<input type="text" name="nome" class="form-control"><br>
 						CPF:<br>
-						<input type="text" name="cpf"class="form-control"><br>
+						<input type="text" name="cpf"class="form-control" maxlength="11" onkeypress='return SomenteNumero(event)'><br>
 						Senha:<br>
 						<input type="password" name="senha" class="form-control"><br>
 						Telefone:<br>
-						<input type="text" name="telefone" class="form-control"><br>
+						<input type="text" name="telefone" class="form-control" maxlength="16" onkeypress='return SomenteNumero(event)'><br>
 						
 						<div class="radio">
 							Tipo:
@@ -39,7 +39,7 @@
 				  	</div>
 				  	<div class="col-md-6">	
 					  	CEP:<br>
-					  	<input type="text" name="cep" class="form-control"><br>
+					  	<input type="text" name="cep" class="form-control" onkeypress='return SomenteNumero(event)'><br>
 					  	Rua:<br>
 					  	<input type="text" name="rua" class="form-control"><br>
 					  	Cidade:<br>
