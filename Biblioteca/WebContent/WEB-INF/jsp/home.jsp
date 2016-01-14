@@ -4,14 +4,20 @@
 	<div class="row">
 		<div class="container">
 			<div class="col-md-6 col-md-offset-3">
-				<div class="row">
-					<h3>
-						<%=noticia.getTitulo()%>
-					</h3>	
-				</div>
-				<div class="row corpo-noticia">
-					<%=noticia.getDescricao()%>
-				</div>
+				<%if(noticia != null) {%>
+					<div class="row">
+						<h3>
+							<%=noticia.getTitulo()%>
+						</h3>	
+					</div>
+					<div class="row corpo-noticia">
+						<%=noticia.getDescricao()%>
+					</div>
+				<%} else {%>
+					<div class="row">
+						<h4>Não há notícias.</h4>					
+					</div>
+				<%} %>
 			</div>
 		</div>
 	</div>
