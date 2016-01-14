@@ -24,7 +24,7 @@ public class RenovacaoLogic implements ILogica{
 		EmprestimoDAO dao = new EmprestimoDAO(connection);
 		Emprestimo emprestimo = dao.read(usuario.getCpf(), request.getParameter("isbn"));
 		
-		if(emprestimo != null) {
+		if(emprestimo != null && emprestimo.getRenovacoes() < 10) {
 			Calendar novaEntrega = emprestimo.getDataEntrega();
 			novaEntrega.add(Calendar.DATE, 14);
 			
