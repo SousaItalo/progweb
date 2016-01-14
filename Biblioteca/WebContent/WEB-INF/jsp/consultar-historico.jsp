@@ -27,7 +27,12 @@
 					<td><form action="ControllerServlet" method="post">
 							<input type="hidden" name="isbn" value="${emprestimo.idLivro}">
 							<input type="hidden" name="logica" value="RenovacaoLogic">
-							<input type="submit" value="Renovar">
+							<c:if test="${emprestimo.multa == 0 && emprestimo.dataDevolucao == null}">
+								<input type="submit" value="Renovar" class="btn btn-success" role="button">
+							</c:if>
+							<c:if test="${emprestimo.multa > 0 || emprestimo.dataDevolucao != null}">
+								<input type="submit" value="Renovar" class="btn btn-default disabled" role="button">
+							</c:if>
 						</form>
 					</td>
 				</tr>
