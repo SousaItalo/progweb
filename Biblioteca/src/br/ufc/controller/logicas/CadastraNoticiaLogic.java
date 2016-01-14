@@ -22,7 +22,7 @@ public class CadastraNoticiaLogic implements ILogica{
 		NoticiaDAO dao = new NoticiaDAO(connection);
 		dao.create(noticia);
 		
-		return "/WEB-INF/jsp/home.jsp";
+		return "/WEB-INF/jsp/cadastrar-noticia.jsp";
 	}
 
 }
