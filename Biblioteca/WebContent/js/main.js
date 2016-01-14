@@ -1,5 +1,8 @@
+var campos = 0;
+
 function addCampo(nome) {
-    "use strict";
+    if(campos < 4){
+	"use strict";
     var row = document.createElement("tr");
     var td1 = document.createElement("td");
     
@@ -16,6 +19,8 @@ function addCampo(nome) {
     
     var table = document.getElementById("tabela-livros");
     table.appendChild(row);
+    campos++;
+    }
 }
 
 function SomenteNumero(e){

@@ -16,6 +16,6 @@ ul li:hover{
 	border-bottom: solid 1px #000
 }
 
-.titulo-noticia{
-	text-decoration: bold;
+.corpo-noticia{
+	 word-wrap: break-word;
 }

@@ -7,7 +7,7 @@
 						Título da notícia:<br/>
 						<input type="text" name="titulo" class="form-control"><br/>
 						Mensagem:<br/>
-						<input type="text" name="descricao" class="form-control"><br/>
+						<textarea rows="10" cols="76" name="descricao" class="form-control" maxlength="256"></textarea><br/>
 						<input type="hidden" name="logica" value="CadastraNoticiaLogic">
 						<input type="submit" value="Cadastrar" class="btn btn-default">
 					</form>
