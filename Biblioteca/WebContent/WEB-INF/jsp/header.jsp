@@ -13,6 +13,7 @@
 <body>
 	<div class="topo">
 		<nav class="navbar navbar-default navbar-fixed-top">
+			 <a class="navbar-brand" href="PaginaServlet?pagina=home.jsp">BibWEB</a>
 			<div class="container">
 			<ul id="menu-principal" class="nav navbar-nav navbar-right">
 				<li><a href="ControllerServlet?logica=ConsultaHistoricoLogic">Histórico</a></li>		

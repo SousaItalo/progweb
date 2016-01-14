@@ -4,8 +4,10 @@
 	<div class="row">
 		<div class="container">
 			<div class="col-md-6 col-md-offset-3">
-				<div class="row titulo-notica">
-					<%=noticia.getTitulo()%>	
+				<div class="row">
+					<h3>
+						<%=noticia.getTitulo()%>
+					</h3>	
 				</div>
 				<div class="row corpo-noticia">
 					<%=noticia.getDescricao()%>
