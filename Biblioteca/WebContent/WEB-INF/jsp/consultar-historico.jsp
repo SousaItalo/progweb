@@ -39,5 +39,7 @@
 				</c:forEach>
 			</tbody>
 		</table>
+	<%}else{%>
+		<h3>O usuário não possui dados no histórico.</h3>
 	<%}%>
 <jsp:include page="footer.jsp"/>
