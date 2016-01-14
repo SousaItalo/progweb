@@ -1,16 +1,16 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>
 <jsp:include page="header.jsp"/>
-	<h1>Hístorico</h1>
+	<h1>Histórico</h1>
 	<%if(request.getAttribute("emprestimos") != null){ %>
 		<table class="table table-striped">
 			<thead>
 				<tr>
 					<td>Nome</td>
-					<td>Data de emprestimo</td>
+					<td>Data de empréstimo</td>
 					<td>Data de entrega</td>
 					<td>Multa</td>
-					<td>Renovacoes</td>
+					<td>Renovações</td>
 					<td>#</td>
 				</tr>
 			</thead>

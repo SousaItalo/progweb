@@ -7,7 +7,7 @@
 				<input type="text" name="titulo" class="form-control"><br>
 				ISBN:<br>
 				<input type="text" name="isbn" maxlength="13" onkeypress="return SomenteNumero(event)" class="form-control"><br>
-				Genero:<br>
+				Gênero:<br>
 				<input type="text" name="genero" class="form-control"><br>
 				Quantidade:<br>
 				<input type="text" name="quantidade" onkeypress="return SomenteNumero(event)" class="form-control"><br>

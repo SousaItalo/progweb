@@ -6,11 +6,11 @@
 	        <form action="ControllerServlet" method="post">
 	            ISBN:<br/>
 	            <input type="text" name="isbn" class="form-control"><br/>
-	            Titulo do livro:<br/>
+	            Título do livro:<br/>
 	            <input type="text" name="nome" class="form-control"><br/>
 	            Nome do autor:<br/>
 	            <input type="text" name="autor" class="form-control"><br/>
-	            Genero:<br/>
+	            Gênero:<br/>
 	            <input type="text" name="genero" class="form-control"><br/>
 	            <input type="hidden" name="logica" value="ConsultaLivroLogic">
 	            <input type="submit" value="Consultar" class="btn btn-default">
@@ -21,11 +21,11 @@
     		<table id="consulta-livros" class="table table-striped">
     			<thead>
     				<tr>
-    					<td>Isbn</td>
+    					<td>ISBN</td>
     					<td>Nome</td>
-    					<td>Genero</td>
-    					<td>Ano de pulicacao</td>
-    					<td>Exemplares disponiveis</td>
+    					<td>Gênero</td>
+    					<td>Ano de pulicação</td>
+    					<td>Exemplares disponíveis</td>
     					<td>Autores</td>
     				</tr>
     			</thead>

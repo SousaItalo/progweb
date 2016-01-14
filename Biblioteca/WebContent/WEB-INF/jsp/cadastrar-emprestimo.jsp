@@ -1,7 +1,7 @@
 <jsp:include page="header.jsp"/> 
 <div class="row">
 	<div class="col-md-6 col-md-offset-2">
-		<h1>Cadastrar Emprestimo</h1>
+		<h1>Cadastrar Empréstimo</h1>
 		<form action="ControllerServlet" method="post">
 		    CPF:<br>
 		    <input type="text" name="cpf" maxlength="11" onkeypress="return SomenteNumero(event)" class="form-control"><br>

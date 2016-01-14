@@ -3,7 +3,7 @@
 <jsp:include page="header.jsp"/>
 	<div class="row">
 		<div class="col-md-4">
-			<h1>Devolucao</h1>
+			<h1>Devolução</h1>
 			<form action="ControllerServlet" method="post">
 				CPF do cliente:<br/>
 				<input type="text" name="cpf" class="form-control"><br/>
@@ -17,10 +17,10 @@
 				<thead>
 					<tr>
 						<td>Nome</td>
-						<td>Data de emprestimo</td>
+						<td>Data de empréstimo</td>
 						<td>Data de entrega</td>
 						<td>Multa</td>
-						<td>Renovacoes</td>
+						<td>Renovações</td>
 						<td>#</td>
 					</tr>
 				</thead>

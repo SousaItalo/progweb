@@ -14,17 +14,17 @@
 		<nav class="navbar navbar-default navbar-fixed-top">
 			<div class="container">
 			<ul id="menu-principal" class="nav navbar-nav navbar-right">
-				<li><a href="ControllerServlet?logica=ConsultaHistoricoLogic">Historico</a></li>		
+				<li><a href="ControllerServlet?logica=ConsultaHistoricoLogic">Histórico</a></li>		
 				<li><a href="PaginaServlet?pagina=consultar-livros.jsp">Consultar Acervo</a></li>
 				<%
 					br.ufc.model.javabeans.Usuario user = (br.ufc.model.javabeans.Usuario)session.getAttribute("usuario");
 					if(user.getTipo() == 'F'){
 				%>
-					<li><a href="PaginaServlet?pagina=devolucao.jsp">Devolucao</a></li>
-					<li><a href="PaginaServlet?pagina=cadastrar-usuario.jsp">Cadastrar Usuario</a></li>
+					<li><a href="PaginaServlet?pagina=devolucao.jsp">Devolução</a></li>
+					<li><a href="PaginaServlet?pagina=cadastrar-usuario.jsp">Cadastrar Usuário</a></li>
 					<li><a href="PaginaServlet?pagina=cadastrar-livro.jsp">Cadastrar Livro</a></li>
-					<li><a href="PaginaServlet?pagina=cadastrar-emprestimo.jsp">Realizar Empresitmo</a></li>
-					<li><a href="PaginaServlet?pagina=cadastrar-noticia.jsp">Cadastrar Noticia</a></li>
+					<li><a href="PaginaServlet?pagina=cadastrar-emprestimo.jsp">Realizar Emprésitmo</a></li>
+					<li><a href="PaginaServlet?pagina=cadastrar-noticia.jsp">Cadastrar Notícia</a></li>
 				<%}%>
 				<li><a href="ControllerServlet?logica=LogoutLogic">Logout</a></li>	
 			</ul>
